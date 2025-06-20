@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://baxarjpvjlu56" path="res://character_movement.gd" id="1_a202f"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xowi"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
 albedo_color = Color(0.458824, 0, 1, 1)
 metallic = 0.76
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xowi"]
 
 [sub_resource type="Environment" id="Environment_a202f"]
 
@@ -16,21 +16,19 @@ metallic = 0.76
 collision_layer = 2
 script = ExtResource("1_a202f")
 
+[node name="Rig" type="Node3D" parent="CharacterBody3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CharacterBody3D/Rig"]
+transform = Transform3D(1.15308, 0, 0, 0, 2.43133, 0, 0, 0, 1, 0, 0.978242, 0)
+material = SubResource("StandardMaterial3D_4xowi")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_4xowi")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="CharacterBody3D"]
-transform = Transform3D(1.15308, 0, 0, 0, 2.43133, 0, 0, 0, 1, 0, 0.978242, 0)
-material = SubResource("StandardMaterial3D_4xowi")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-spring_length = 5.0
-margin = 0.1
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SpringArm3D"]
-transform = Transform3D(1, 0.00035745, -0.000831467, 2.74558e-05, 0.906297, 0.422641, 0.00090463, -0.422641, 0.906297, -0.35437, 0.760405, 1.12426)
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+fov = 100.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.901833, 0.432086, 0, -0.432086, 0.901833, 0, 18.5455, 23.5764)
