@@ -1,0 +1,18 @@
+extends CharacterBody3D
+
+@onready var nav_agent = $NavigationAgent3D
+
+@export var acceleration = 10
+@export var speed = 2
+
+func _ready():
+	nav_agent.max_speed = 5
+
+func _process(delta: float) -> void:
+	nav_agent.target_position = %Player.global_position
+	
+	var direction = nav_agent.get_next_path_position() - global_position
+	direction = direction.normalized()
+	velocity = velocity.lerp(direction * speed, acceleration * delta)
+	move_and_slide()
+	

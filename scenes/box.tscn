@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://djdoncrw3ek65"]
+
+[sub_resource type="Gradient" id="Gradient_ap5up"]
+offsets = PackedFloat32Array(0, 0.313433, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.473976, 0.473976, 0.473976, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kx1au"]
+frequency = 0.005
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 3.0
+fractal_gain = 2.0
+fractal_weighted_strength = 0.4
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0w8t8"]
+seamless = true
+as_normal_map = true
+bump_strength = 0.5
+color_ramp = SubResource("Gradient_ap5up")
+noise = SubResource("FastNoiseLite_kx1au")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wq20"]
+albedo_color = Color(0.158472, 0.158472, 0.158472, 1)
+normal_scale = -16.0
+normal_texture = SubResource("NoiseTexture2D_0w8t8")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_on5l8"]
+size = Vector3(0.001, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D"]
+size = Vector3(7.06653, 12.9395, 31.5571)
+material = SubResource("StandardMaterial3D_1wq20")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, 0, 0)
+shape = SubResource("BoxShape3D_on5l8")
