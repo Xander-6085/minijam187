@@ -5,7 +5,7 @@ class_name Angel
 @export var acceleration = 4.0
 @export var mouse_sensitivity = 0.0015
 @export var rotation_speed = 12.0
-@export var starting_light = 0
+@export var starting_light = 50
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -38,9 +38,15 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("shoot") and active_gun.can_shoot:
-		active_gun.shoot()
-		
+	if Input.is_action_pressed("shoot") and active_gun.can_shoot(light):
+		print("before:")
+		print(light)
+		light -= active_gun.get_ammo_cost()
+		var shot_success = active_gun.shoot()
+		if shot_success > 0:
+			light += active_gun.claim_bounty()
+		print("after:")
+		print(light)
 
 
 func _input(event):
