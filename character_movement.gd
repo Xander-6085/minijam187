@@ -5,7 +5,8 @@ class_name Angel
 @export var acceleration = 4.0
 @export var mouse_sensitivity = 0.0015
 @export var rotation_speed = 12.0
-@export var starting_light = 0
+@export var starting_light = 0.0
+@export var max_light = 100.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -14,10 +15,22 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var interact_text = $CanvasLayer/BoxContainer/interact_text
 @onready var active_gun = $Camera3D/active_gun
 
-var light = starting_light
+var light : float = max_light:
+	get:
+		return light
+	set(value):
+		light = clamp(value, 0, max_light)
+		var v = light / max_light;
+		v = lerp(1, -1, v);
+		var light_bar_mat = %LightBar.material
+		light_bar_mat.set_shader_parameter("cutoff", v);
+		%LightBar.material = light_bar_mat;
+		
+		
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
 
 func _physics_process(delta):
 	interact_text.hide()
@@ -41,6 +54,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("shoot") and active_gun.can_shoot:
 		active_gun.shoot()
 		
+	print_debug(%LightBar.material.get_shader_parameter("cutoff"))
+	
 
 
 func _input(event):

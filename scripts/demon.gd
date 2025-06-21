@@ -14,5 +14,6 @@ func _process(delta: float) -> void:
 	var direction = nav_agent.get_next_path_position() - global_position
 	direction = direction.normalized()
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
+	look_at(nav_agent.target_position)
 	move_and_slide()
 	

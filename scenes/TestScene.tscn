@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://m6kjplqpf8ds"]
+[gd_scene load_steps=9 format=3 uid="uid://m6kjplqpf8ds"]
 
+[ext_resource type="Script" uid="uid://c1g3od6rn877q" path="res://scripts/test_scene.gd" id="1_nb1wl"]
 [ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="1_rlkm5"]
 [ext_resource type="PackedScene" uid="uid://dt5ik1ytj365r" path="res://scenes/Demon.tscn" id="2_n77mx"]
 [ext_resource type="Texture2D" uid="uid://c44d25h6hmjce" path="res://assets/icon_outlined.png" id="3_n77mx"]
@@ -33,6 +34,7 @@ volumetric_fog_ambient_inject = 3.56
 volumetric_fog_sky_affect = 0.0
 
 [node name="TestScene" type="Node3D"]
+script = ExtResource("1_nb1wl")
 
 [node name="Player" parent="." instance=ExtResource("1_rlkm5")]
 unique_name_in_owner = true

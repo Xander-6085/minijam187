@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ex3qldq6oyy6"]
+[gd_scene load_steps=12 format=3 uid="uid://ex3qldq6oyy6"]
 
 [ext_resource type="Script" uid="uid://baxarjpvjlu56" path="res://character_movement.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://lo8ooq1y0dh" path="res://scenes/pistol.tscn" id="2_3li8b"]
-[ext_resource type="Script" uid="uid://dyt7mbb1g7im" path="res://scenes/active_gun.gd" id="2_mdl7e"]
+[ext_resource type="Script" path="res://scenes/active_gun.gd" id="2_mdl7e"]
+[ext_resource type="Shader" uid="uid://b1b07kj1y4qgw" path="res://shaders/godray.gdshader" id="4_mdl7e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
 albedo_color = Color(0.458824, 0, 1, 1)
@@ -20,6 +21,32 @@ expand_margin_left = 10.0
 expand_margin_top = 5.0
 expand_margin_right = 10.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="Curve" id="Curve_qu4a1"]
+_limits = [0.0260062, 0.61583, -0.5, 0.988449]
+_data = [Vector2(-0.0996417, 0.0627105), 0.0, 0.0, 0, 0, Vector2(0.0821161, 0.0698322), 0.0, 0.0, 0, 0, Vector2(0.246681, 0.0413454), 0.0, 0.0, 0, 0, Vector2(0.416157, 0.0769539), 0.0, 0.0, 0, 0, Vector2(0.519317, 0.0888235), 0.0, 0.0, 0, 0, Vector2(0.615109, 0.110189), 0.0, 0.0, 0, 0, Vector2(0.723181, 0.17191), 0.0, 0.0, 0, 0, Vector2(0.882833, 0.290605), 0.0, 0.0, 0, 0, Vector2(0.988449, 0.416422), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_70d11"]
+curve = SubResource("Curve_qu4a1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cw2d6"]
+shader = ExtResource("4_mdl7e")
+shader_parameter/angle = 5.815
+shader_parameter/position = -0.48
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = -1.0
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.822
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.44
+shader_parameter/color = Color(1, 0.9, 0.65, 1)
+shader_parameter/hdr = true
+shader_parameter/seed = 5.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mdl7e"]
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -71,3 +98,29 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_v6fml")
 text = "$4,000,000: shotgun"
+
+[node name="LightBarEmpty" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_top = 286.0
+offset_right = 145.0
+offset_bottom = 326.0
+grow_horizontal = 0
+rotation = 4.71239
+texture = SubResource("CurveTexture_70d11")
+
+[node name="LightBar" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_cw2d6")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_top = 32.0
+offset_right = -17.0
+offset_bottom = 627.0
+grow_horizontal = 0
+scale = Vector2(0.425, 0.425)
+texture = SubResource("PlaceholderTexture2D_mdl7e")
