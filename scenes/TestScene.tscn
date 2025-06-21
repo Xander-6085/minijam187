@@ -1,44 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://btndgg06luwpu"]
+[gd_scene load_steps=6 format=3 uid="uid://m6kjplqpf8ds"]
 
-[ext_resource type="Script" uid="uid://baxarjpvjlu56" path="res://character_movement.gd" id="1_a202f"]
-[ext_resource type="PackedScene" uid="uid://lo8ooq1y0dh" path="res://scenes/pistol.tscn" id="2_noarx"]
+[ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="1_rlkm5"]
+[ext_resource type="Texture2D" uid="uid://c44d25h6hmjce" path="res://assets/icon_outlined.png" id="3_n77mx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
-albedo_color = Color(0.458824, 0, 1, 1)
-metallic = 0.76
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nb1wl"]
+panorama = ExtResource("3_n77mx")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xowi"]
+[sub_resource type="Sky" id="Sky_mdmvd"]
+sky_material = SubResource("PanoramaSkyMaterial_nb1wl")
 
-[sub_resource type="Environment" id="Environment_a202f"]
+[sub_resource type="Environment" id="Environment_m5dm6"]
+background_mode = 1
+background_color = Color(0.156893, 0.187417, 0.185929, 1)
+background_energy_multiplier = 0.86
+sky = SubResource("Sky_mdmvd")
+sky_custom_fov = 137.1
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.03
+ambient_light_energy = 1.06
+fog_light_color = Color(0.616379, 0.649052, 0.700388, 1)
+fog_light_energy = 0.95
+fog_density = 0.0033
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.002
+volumetric_fog_emission = Color(0.843184, 0.843184, 0.843184, 1)
+volumetric_fog_ambient_inject = 3.56
+volumetric_fog_sky_affect = 0.0
 
 [node name="TestScene" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-collision_layer = 2
-script = ExtResource("1_a202f")
-
-[node name="Rig" type="Node3D" parent="CharacterBody3D"]
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="CharacterBody3D/Rig"]
-transform = Transform3D(1.15308, 0, 0, 0, 2.43133, 0, 0, 0, 1, 0, 0.978242, 0)
-material = SubResource("StandardMaterial3D_4xowi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_4xowi")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-fov = 100.0
-
-[node name="pistol" parent="CharacterBody3D/Camera3D" instance=ExtResource("2_noarx")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555391, -0.482721, -0.768087)
+[node name="Player" parent="." instance=ExtResource("1_rlkm5")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.901833, 0.432086, 0, -0.432086, 0.901833, 0, 18.5455, 23.5764)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_a202f")
 
 [node name="Level Base" type="Node" parent="."]
 
@@ -89,3 +83,6 @@ size = Vector3(1, 4.76181, 7.95435)
 [node name="CSGBox3D11" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
 transform = Transform3D(1, 0, -2.90477e-07, 0, 1, 0, 2.90477e-07, 0, 1, -0.152451, 3.73652, 6.87397)
 size = Vector3(6.21872, 1.00928, 3.29311)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m5dm6")

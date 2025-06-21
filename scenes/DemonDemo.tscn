@@ -6,13 +6,13 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gnwq4"]
 panorama = ExtResource("1_ggf7f")
 
-[sub_resource type="Sky" id="Sky_mdmvd"]
+[sub_resource type="Sky" id="Sky_6bxiw"]
 sky_material = SubResource("PanoramaSkyMaterial_gnwq4")
 
 [sub_resource type="Environment" id="Environment_7ajp4"]
 background_mode = 2
 background_energy_multiplier = 3.7
-sky = SubResource("Sky_mdmvd")
+sky = SubResource("Sky_6bxiw")
 sky_custom_fov = 137.1
 ambient_light_color = Color(0.660889, 0.527144, 0.9932, 1)
 ambient_light_sky_contribution = 0.03

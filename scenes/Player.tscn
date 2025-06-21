@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ex3qldq6oyy6"]
+
+[ext_resource type="Script" uid="uid://baxarjpvjlu56" path="res://character_movement.gd" id="1_v6fml"]
+[ext_resource type="PackedScene" uid="uid://lo8ooq1y0dh" path="res://scenes/pistol.tscn" id="2_3li8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
+albedo_color = Color(0.458824, 0, 1, 1)
+metallic = 0.76
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xowi"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_v6fml")
+
+[node name="Rig" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Rig"]
+transform = Transform3D(1.15308, 0, 0, 0, 2.43133, 0, 0, 0, 1, 0, 0.978242, 0)
+material = SubResource("StandardMaterial3D_4xowi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4xowi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+fov = 100.0
+
+[node name="pistol" parent="Camera3D" instance=ExtResource("2_3li8b")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555391, -0.482721, -0.768087)

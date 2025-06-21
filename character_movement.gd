@@ -7,8 +7,13 @@ class_name Angel
 @export var rotation_speed = 12.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var gun_barrel = $Camera3D/pistol/RayCast3D
 
 @onready var model = $Rig
+@onready var bullet_scene = load("res://scenes/bullet.tscn")
+
+const SHOOT_TIME = 0.3
+var shoot_timer = -1
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -21,6 +26,23 @@ func _physics_process(delta):
 	velocity.z = movement_dir.z * speed
 
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	if shoot_timer != -1:
+		shoot_timer += delta # countdown
+		if shoot_timer > SHOOT_TIME: # we can shoot again
+			shoot_timer = -1
+		
+	if Input.is_action_pressed("shoot") and shoot_timer == -1:
+		var bullet = bullet_scene.instantiate()
+		bullet.position = gun_barrel.global_position
+		bullet.transform.basis = gun_barrel.global_transform.basis
+		bullet.scale *= 10
+		get_parent().add_child(bullet)
+		shoot_timer = 0
+		
+		
+
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
