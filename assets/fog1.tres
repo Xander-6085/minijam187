@@ -1,0 +1,13 @@
+[gd_resource type="FogMaterial" load_steps=3 format=3 uid="uid://btlton6nhclq2"]
+
+[sub_resource type="Gradient" id="Gradient_cqt8p"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_ouc4x"]
+color_ramp = SubResource("Gradient_cqt8p")
+
+[resource]
+density = 3.0
+albedo = Color(1, 0.9, 1.6, 1)
+height_falloff = 0.000640004
+edge_fade = 0.2
+density_texture = SubResource("NoiseTexture3D_ouc4x")

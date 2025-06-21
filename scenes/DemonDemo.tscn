@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://0jms0m0l13f"]
+
+[ext_resource type="Texture2D" uid="uid://c44d25h6hmjce" path="res://assets/icon_outlined.png" id="1_ggf7f"]
+[ext_resource type="PackedScene" uid="uid://dt5ik1ytj365r" path="res://scenes/Demon.tscn" id="2_6bxiw"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gnwq4"]
+panorama = ExtResource("1_ggf7f")
+
+[sub_resource type="Sky" id="Sky_mdmvd"]
+sky_material = SubResource("PanoramaSkyMaterial_gnwq4")
+
+[sub_resource type="Environment" id="Environment_7ajp4"]
+background_mode = 2
+background_energy_multiplier = 3.7
+sky = SubResource("Sky_mdmvd")
+sky_custom_fov = 137.1
+ambient_light_color = Color(0.660889, 0.527144, 0.9932, 1)
+ambient_light_sky_contribution = 0.03
+ambient_light_energy = 1.06
+fog_light_color = Color(0.616379, 0.649052, 0.700388, 1)
+fog_light_energy = 0.95
+fog_density = 0.0033
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.002
+volumetric_fog_emission = Color(0.843184, 0.843184, 0.843184, 1)
+volumetric_fog_ambient_inject = 3.56
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="Gradient" id="Gradient_jmhkl"]
+offsets = PackedFloat32Array(0.277264, 0.456562, 0.678373, 0.868762, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.473976, 0.473976, 0.473976, 1, 0.964251, 0.964251, 0.964251, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_78c72"]
+frequency = 0.005
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 3.0
+fractal_gain = 2.0
+fractal_weighted_strength = 0.4
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qa6il"]
+seamless = true
+as_normal_map = true
+bump_strength = 0.5
+color_ramp = SubResource("Gradient_jmhkl")
+noise = SubResource("FastNoiseLite_78c72")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hejbp"]
+albedo_color = Color(0.0393797, 0.012537, 0.0350268, 1)
+roughness = 0.5
+normal_enabled = true
+normal_scale = 7.44
+normal_texture = SubResource("NoiseTexture2D_qa6il")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.482971
+uv2_scale = Vector3(2, 2, 2)
+texture_filter = 5
+
+[sub_resource type="Gradient" id="Gradient_ap5up"]
+offsets = PackedFloat32Array(0, 0.313433, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.473976, 0.473976, 0.473976, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kx1au"]
+frequency = 0.005
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 3.0
+fractal_gain = 2.0
+fractal_weighted_strength = 0.4
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0w8t8"]
+seamless = true
+as_normal_map = true
+bump_strength = 0.5
+color_ramp = SubResource("Gradient_ap5up")
+noise = SubResource("FastNoiseLite_kx1au")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wq20"]
+albedo_color = Color(0.158472, 0.158472, 0.158472, 1)
+normal_scale = -16.0
+normal_texture = SubResource("NoiseTexture2D_0w8t8")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+
+[node name="DemonDemo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7ajp4")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+size = Vector3(1024, 1.99, 1024)
+material = SubResource("StandardMaterial3D_hejbp")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7944, 7.46973, 0.720356)
+size = Vector3(7.06653, 12.9395, 31.5571)
+material = SubResource("StandardMaterial3D_1wq20")
+
+[node name="Demon" parent="." instance=ExtResource("2_6bxiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1618, 1.59762, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0745088, 0.99722, 0, -0.99722, 0.0745088, 0, 66.5302, 15.7705)
+light_energy = 3.325
+light_indirect_energy = 0.572
+light_volumetric_fog_energy = 2.985
+light_specular = 0.0

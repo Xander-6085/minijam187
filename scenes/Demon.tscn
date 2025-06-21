@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt5ik1ytj365r"]
+
+[ext_resource type="Material" uid="uid://btlton6nhclq2" path="res://assets/fog1.tres" id="1_6p4pk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p4pk"]
+albedo_color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tntch"]
+material = SubResource("StandardMaterial3D_6p4pk")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jsukk"]
+
+[node name="Demon" type="CharacterBody3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00585651, 1.01194, -0.00413918)
+mesh = SubResource("CapsuleMesh_tntch")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978705, 0)
+shape = SubResource("CapsuleShape3D_jsukk")
+
+[node name="FogVolumeNegativeDensity2" type="FogVolume" parent="."]
+transform = Transform3D(0.14285, 0, 0, 0, 0.18334, 0, 0, 0, 0.105661, -0.163361, 1.02756, -0.00573505)
+size = Vector3(19.2466, 14.4972, 12.3024)
+material = ExtResource("1_6p4pk")
