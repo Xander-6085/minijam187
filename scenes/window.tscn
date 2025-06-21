@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccjvvlge3tb6w"]
+
+[ext_resource type="PackedScene" uid="uid://kaneguj4yqpm" path="res://assets/window.blend" id="1_oya5r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to7fh"]
+albedo_color = Color(0.635294, 0.254902, 0.0627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvkcj"]
+albedo_color = Color(0.635294, 0.254902, 0.0627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnju7"]
+albedo_color = Color(0.635716, 0.254582, 0.0629645, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ato5p"]
+albedo_color = Color(0, 0.494697, 8.66354e-07, 1)
+
+[node name="window" instance=ExtResource("1_oya5r")]
+
+[node name="Plank1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_to7fh")
+
+[node name="Plank2" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qvkcj")
+
+[node name="Plank3" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qnju7")
+
+[node name="Enclosure" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ato5p")
