@@ -38,7 +38,7 @@ script = ExtResource("1_nb1wl")
 
 [node name="Player" parent="." instance=ExtResource("1_rlkm5")]
 unique_name_in_owner = true
-transform = Transform3D(-0.737289, 0, -0.675577, 0, 1, 0, 0.675577, 0, -0.737289, 0, 0, -10.8287)
+transform = Transform3D(-0.737776, -0.000781781, -0.675044, -0.000552398, 1, -0.000554386, 0.675045, -3.61489e-05, -0.737777, 0, 0, -10.8287)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.901833, 0.432086, 0, -0.432086, 0.901833, 0, 18.5455, 23.5764)

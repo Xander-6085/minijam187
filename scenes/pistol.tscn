@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://lo8ooq1y0dh"]
 
-[ext_resource type="Script" path="res://scenes/pistol.gd" id="1_igbvm"]
+[ext_resource type="Script" uid="uid://bbli35kvnhscj" path="res://scenes/pistol.gd" id="1_igbvm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vjoq"]
 resource_name = "Material.001"
@@ -88,6 +88,7 @@ mesh = SubResource("ArrayMesh_p4ywk")
 skeleton = NodePath("")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.054)
-target_position = Vector3(0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 10.0418, 12.7187)
+target_position = Vector3(0, 0, -1000)
+collision_mask = 9
 debug_shape_thickness = 5
