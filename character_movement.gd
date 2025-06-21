@@ -21,7 +21,7 @@ var light : float = max_light:
 	set(value):
 		light = clamp(value, 0, max_light)
 		var v = light / max_light;
-		v = lerp(1, -1, v);
+		v = lerp(0.3, -1.0, v);
 		var light_bar_mat = %LightBar.material
 		light_bar_mat.set_shader_parameter("cutoff", v);
 		%LightBar.material = light_bar_mat;
@@ -51,9 +51,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("shoot") and active_gun.can_shoot:
-		active_gun.shoot()
-		
 	if Input.is_action_pressed("shoot") and active_gun.can_shoot(light):
 		print("before:")
 		print(light)
