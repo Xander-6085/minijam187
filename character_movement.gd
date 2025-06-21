@@ -3,23 +3,32 @@ class_name Angel
 
 @export var speed = 5.0
 @export var acceleration = 4.0
-@export var jump_speed = 8.0
+@export var mouse_sensitivity = 0.0015
+@export var rotation_speed = 12.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var jumping = false
 
-@onready var spring_arm = $SpringArm3D
+@onready var model = $Rig
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
 	velocity.y += -gravity * delta
-	get_move_input(delta)
+	var input = Input.get_vector("left", "right", "forward", "back")
+	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
+	velocity.x = movement_dir.x * speed
+	velocity.z = movement_dir.z * speed
 
 	move_and_slide()
-	
-func get_move_input(delta):
-	var vy = velocity.y
-	velocity.y = 0
-	var input = Input.get_vector("left", "right", "forward", "back")
-	var dir = Vector3(input.x, 0, input.y).rotated(Vector3.UP, spring_arm.rotation.y)
-	velocity = lerp(velocity, dir * speed, acceleration * delta)
-	velocity.y = vy
+
+func _input(event):
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
+		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+	if event.is_action_pressed("ui_cancel"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
