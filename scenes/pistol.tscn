@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://lo8ooq1y0dh"]
+[gd_scene load_steps=7 format=4 uid="uid://lo8ooq1y0dh"]
+
+[ext_resource type="Script" uid="uid://bbli35kvnhscj" path="res://scenes/pistol.gd" id="1_igbvm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vjoq"]
 resource_name = "Material.001"
@@ -73,6 +75,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pgdpd")
 
 [node name="pistol" type="Node3D"]
+script = ExtResource("1_igbvm")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)

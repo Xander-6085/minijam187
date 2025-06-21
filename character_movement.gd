@@ -5,17 +5,16 @@ class_name Angel
 @export var acceleration = 4.0
 @export var mouse_sensitivity = 0.0015
 @export var rotation_speed = 12.0
+@export var starting_light = 0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var gun_barrel = $Camera3D/pistol/RayCast3D
 @onready var model = $Rig
 @onready var interact_cast = $Camera3D/interact_cast
 @onready var interact_text = $CanvasLayer/BoxContainer/interact_text
-@onready var bullet_scene = load("res://scenes/bullet.tscn")
+@onready var active_gun = $Camera3D/active_gun
 
-const SHOOT_TIME = 0.3
-var shoot_timer = -1
+var light = starting_light
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -24,7 +23,8 @@ func _physics_process(delta):
 	interact_text.hide()
 	if interact_cast.is_colliding():
 		var target = interact_cast.get_collider()
-		if target.has_method("interact"):
+		if target != null and target.has_method("interact") and target.has_method("get_interact_text"):
+			interact_text.text = target.get_interact_text()
 			interact_text.show()
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
@@ -38,19 +38,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if shoot_timer != -1:
-		shoot_timer += delta # countdown
-		if shoot_timer > SHOOT_TIME: # we can shoot again
-			shoot_timer = -1
-		
-	if Input.is_action_pressed("shoot") and shoot_timer == -1:
-		var bullet = bullet_scene.instantiate()
-		bullet.position = gun_barrel.global_position
-		bullet.transform.basis = gun_barrel.global_transform.basis
-		bullet.scale *= 10
-		get_parent().add_child(bullet)
-		shoot_timer = 0
-		
+	if Input.is_action_pressed("shoot") and active_gun.can_shoot:
+		active_gun.shoot()
 		
 
 

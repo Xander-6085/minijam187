@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3flgk8ad1se0"]
+[gd_scene load_steps=5 format=3 uid="uid://b3flgk8ad1se0"]
 
 [ext_resource type="PackedScene" uid="uid://bt8m0hccx85yp" path="res://item-shop.tscn" id="1_v1he0"]
 [ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="2_8wkqr"]
+[ext_resource type="PackedScene" uid="uid://dhl5yt3pf1nbh" path="res://door.tscn" id="2_v1he0"]
 
 [sub_resource type="Environment" id="Environment_a202f"]
 
@@ -29,8 +30,8 @@ transform = Transform3D(0.828635, 0, 0, 0, 1.3525, 0, 0, 0, 6.56727, 3.56992, -0
 size = Vector3(1, 1, 1.74731)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
-transform = Transform3D(0.0972472, 0, 0, 0, 2.51572, 0, 0, 0, 6.56727, -3.52111, 0.725676, -0.0414151)
-size = Vector3(1, 1, 1.74731)
+transform = Transform3D(0.0972472, 0, 0, 0, 2.51572, 0, 0, 0, 6.56727, -3.52111, 0.725676, -6.60146)
+size = Vector3(1, 1, 1.76398)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
 transform = Transform3D(7.93144, 0, -4.39693e-08, 0, 1.78622, 0, 1.11391e-06, 0, 0.270844, -0.386021, -0.244757, 5.44802)
@@ -64,8 +65,15 @@ size = Vector3(1, 4.76181, 7.95435)
 transform = Transform3D(1, 0, -2.90477e-07, 0, 1, 0, 2.90477e-07, 0, 1, -0.152451, 3.73652, 6.87397)
 size = Vector3(6.21872, 1.00928, 3.29311)
 
+[node name="CSGBox3D12" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68616, -1.00848, 2.19105)
+size = Vector3(6.44672, 1, 6.0722)
+
 [node name="cross" parent="Level Base" instance=ExtResource("1_v1he0")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0.377138, -7.06348)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.0184202, 0.393835, -7.06162)
+
+[node name="door" parent="Level Base" instance=ExtResource("2_v1he0")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -3.77211, 0.418741, 2.22411)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("2_8wkqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666455, 0)
