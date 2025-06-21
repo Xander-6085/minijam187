@@ -7,9 +7,11 @@ class_name Angel
 @export var rotation_speed = 12.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var gun_barrel = $Camera3D/pistol/RayCast3D
 
+@onready var gun_barrel = $Camera3D/pistol/RayCast3D
 @onready var model = $Rig
+@onready var interact_cast = $Camera3D/interact_cast
+@onready var interact_text = $CanvasLayer/BoxContainer/interact_text
 @onready var bullet_scene = load("res://scenes/bullet.tscn")
 
 const SHOOT_TIME = 0.3
@@ -19,6 +21,14 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
+	interact_text.hide()
+	if interact_cast.is_colliding():
+		var target = interact_cast.get_collider()
+		if target.has_method("interact"):
+			interact_text.show()
+			if Input.is_action_just_pressed("interact"):
+				target.interact()
+	
 	velocity.y += -gravity * delta
 	var input = Input.get_vector("left", "right", "forward", "back")
 	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)

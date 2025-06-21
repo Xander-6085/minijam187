@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt8m0hccx85yp"]
+
+[ext_resource type="PackedScene" uid="uid://dyfr5nshnfe4k" path="res://cross.tscn" id="1_lb3ad"]
+[ext_resource type="PackedScene" uid="uid://bgoyscyd26b3n" path="res://pillar.tscn" id="2_rl2s8"]
+
+[node name="cross" type="Node3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="Cross" parent="." instance=ExtResource("1_lb3ad")]
+
+[node name="Pillar" parent="." instance=ExtResource("2_rl2s8")]
+transform = Transform3D(1.30269, 0, 0, 0, 1.30269, 0, 0, 0, 1.30269, 3.22504, 4.72733, -1.86268)
+
+[node name="Pillar2" parent="." instance=ExtResource("2_rl2s8")]
+transform = Transform3D(1.30269, 0, 0, 0, 1.30269, 0, 0, 0, 1.30269, -3.25265, 4.727, -1.811)
+
+[node name="Pillar3" parent="." instance=ExtResource("2_rl2s8")]
+transform = Transform3D(1.30269, 0, 0, 0, 1.30269, 0, 0, 0, 1.30269, 0, 4.727, -2.985)
