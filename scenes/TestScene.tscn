@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://m6kjplqpf8ds"]
+[gd_scene load_steps=8 format=3 uid="uid://m6kjplqpf8ds"]
 
 [ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="1_rlkm5"]
+[ext_resource type="PackedScene" uid="uid://dt5ik1ytj365r" path="res://scenes/Demon.tscn" id="2_n77mx"]
 [ext_resource type="Texture2D" uid="uid://c44d25h6hmjce" path="res://assets/icon_outlined.png" id="3_n77mx"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_n77mx"]
+vertices = PackedVector3Array(-2.85174, -0.242921, -12.7523, -2.85174, -0.242921, 4.49772, 2.64826, -0.242921, 4.49772, 2.64826, -0.242921, -12.7523, -3.60174, 4.50708, 8.99772, 3.39826, 4.50708, 8.99772, 3.39826, 4.50708, 5.49772, -3.85174, 4.50708, 5.49772, -2.60174, 0.00707901, 6.24772, -2.60174, 0.00707901, 7.99772, 2.39826, 0.00707901, 7.74772, 2.39826, 0.00707901, 6.24772)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9)]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nb1wl"]
 panorama = ExtResource("3_n77mx")
@@ -30,59 +35,67 @@ volumetric_fog_sky_affect = 0.0
 [node name="TestScene" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rlkm5")]
+unique_name_in_owner = true
+transform = Transform3D(-0.737289, 0, -0.675577, 0, 1, 0, 0.675577, 0, -0.737289, 0, 0, -10.8287)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.901833, 0.432086, 0, -0.432086, 0.901833, 0, 18.5455, 23.5764)
 
 [node name="Level Base" type="Node" parent="."]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level Base"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Base"]
+navigation_mesh = SubResource("NavigationMesh_n77mx")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level Base/NavigationRegion3D"]
 use_collision = true
 collision_layer = 3
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
-transform = Transform3D(7.06073, 0, 0, 0, 0.727128, 0, 0, 0, 6.56727, -0.0349628, -0.879357, -0.0664331)
-size = Vector3(1, 1, 1.74731)
+[node name="CSGBox3D" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(7.06073, 0, 0, 0, 0.727128, 0, 0, 0, 6.56727, -0.0349628, -0.879357, -3.79059)
+size = Vector3(1, 1, 2.88147)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
-transform = Transform3D(0.828635, 0, 0, 0, 1.3525, 0, 0, 0, 6.56727, 3.56992, -0.0323018, -0.0664331)
-size = Vector3(1, 1, 1.74731)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.828635, 0, 0, 0, 1.3525, 0, 0, 0, 6.56727, 3.56992, -0.0323018, -3.5565)
+size = Vector3(1, 1, 2.81018)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
-transform = Transform3D(0.0972472, 0, 0, 0, 2.51572, 0, 0, 0, 6.56727, -3.52111, 0.725676, -0.0414151)
-size = Vector3(1, 1, 1.74731)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.0972472, 0, 0, 0, 2.51572, 0, 0, 0, 6.56727, -3.52111, 0.725676, -3.70304)
+size = Vector3(1, 1, 2.86242)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(7.93144, 0, -4.39693e-08, 0, 1.78622, 0, 1.11391e-06, 0, 0.270844, -0.386021, -0.244757, 5.44802)
 size = Vector3(1, 1, 1.74731)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65051, 2.37886, 5.44863)
 size = Vector3(2.96777, 3.72816, 0.466797)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(0.999996, -0.00234448, -0.0018622, 0.0023452, 0.999997, 0.000388354, 0.00186129, -0.000392692, 0.999998, 2.50493, 2.34975, 5.4589)
 size = Vector3(2.90442, 3.79141, 0.466797)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
-transform = Transform3D(1, 0, -1.45239e-07, 0, 1, 0, 1.45239e-07, 0, 1, -0.152451, 0, 7.08247)
-size = Vector3(6.21872, 1, 2.8761)
+[node name="CSGBox3D7" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, -1.45239e-07, 0, 1, 0, 1.45239e-07, 0, 1, 0.000144288, -0.419189, 7.08247)
+size = Vector3(6.52391, 0.161621, 2.8761)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42296, 1.85567, 7.09425)
 size = Vector3(1, 4.76181, 2.9292)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64933, 1.85567, 7.09425)
 size = Vector3(1, 4.76181, 2.9292)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-0.0162483, 0, 0.999868, 0, 1, 0, -0.999868, 0, -0.0162483, -0.102151, 1.85567, 8.9882)
 size = Vector3(1, 4.76181, 7.95435)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Level Base/CSGCombiner3D"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, -2.90477e-07, 0, 1, 0, 2.90477e-07, 0, 1, -0.152451, 3.73652, 6.87397)
 size = Vector3(6.21872, 1.00928, 3.29311)
+
+[node name="Demon" parent="." instance=ExtResource("2_n77mx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.17054)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5dm6")
