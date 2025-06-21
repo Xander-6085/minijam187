@@ -22,7 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 		print(max_light)
 		light = clamp(value, 0, max_light)
 		var v = light / max_light;
-		v = lerp(1, -1, v);
+		v = lerp(0.3, -1.0, v);
 		var light_bar_mat = %LightBar.material
 		light_bar_mat.set_shader_parameter("cutoff", v);
 		%LightBar.material = light_bar_mat;

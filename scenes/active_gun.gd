@@ -23,4 +23,4 @@ func _process(delta):
 			shoot_timer = -1
 			
 func can_shoot(light):
-	return shoot_timer == -1 && light > get_ammo_cost()
+	return shoot_timer == -1 && light >= get_ammo_cost()

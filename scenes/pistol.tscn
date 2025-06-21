@@ -92,3 +92,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0804935, 0.0490755, -7.0229
 target_position = Vector3(0, 0, -1e+07)
 collision_mask = 9
 debug_shape_thickness = 5
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -9.13656e-07, -27.928)
+radius = 0.0473633
+height = 43.804
