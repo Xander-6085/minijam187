@@ -88,7 +88,7 @@ mesh = SubResource("ArrayMesh_p4ywk")
 skeleton = NodePath("")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 10.0418, 12.7187)
-target_position = Vector3(0, 0, -1000)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0804935, 0.0490755, -7.02299)
+target_position = Vector3(0, 0, -1e+07)
 collision_mask = 9
 debug_shape_thickness = 5

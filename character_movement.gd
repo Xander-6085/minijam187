@@ -15,20 +15,20 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var interact_text = $CanvasLayer/BoxContainer/interact_text
 @onready var active_gun = $Camera3D/active_gun
 
-var light : float = max_light:
+@onready var light : float = 0:
 	get:
 		return light
 	set(value):
+		print(max_light)
 		light = clamp(value, 0, max_light)
 		var v = light / max_light;
 		v = lerp(1, -1, v);
 		var light_bar_mat = %LightBar.material
 		light_bar_mat.set_shader_parameter("cutoff", v);
 		%LightBar.material = light_bar_mat;
-		
-		
 
 func _ready():
+	light = starting_light
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 
@@ -51,9 +51,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("shoot") and active_gun.can_shoot:
-		active_gun.shoot()
-		
 	if Input.is_action_pressed("shoot") and active_gun.can_shoot(light):
 		print("before:")
 		print(light)

@@ -1,17 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://cij56j0j8xdai"]
+[gd_scene load_steps=11 format=3 uid="uid://cij56j0j8xdai"]
 
 [ext_resource type="Script" uid="uid://doqp6oijh7fx4" path="res://scripts/bullet.gd" id="1_mkf8s"]
+[ext_resource type="Shader" uid="uid://5l1hxb5f1of0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="2_eoqba"]
+[ext_resource type="Shader" uid="uid://bikl0qrl018t4" path="res://addons/GPUTrail/shaders/trail_draw_pass.gdshader" id="3_qncy5"]
+[ext_resource type="Texture2D" uid="uid://dhfeq3f1l4usw" path="res://addons/GPUTrail/bounce.svg" id="4_qncy5"]
+[ext_resource type="Script" uid="uid://b6hmu7slx1qwx" path="res://addons/GPUTrail/GPUTrail3D.gd" id="4_tamys"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_h1aey"]
-size = Vector3(0.1, 0.1, 0.5)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26lx3"]
+shader = ExtResource("2_eoqba")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkf8s"]
-albedo_color = Color(0.796243, 0.796243, 0.796243, 1)
-metallic = 1.0
-metallic_specular = 0.87
-roughness = 0.7
+[sub_resource type="Curve" id="Curve_in4mv"]
+bake_resolution = 16
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s437g"]
+curve = SubResource("Curve_in4mv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqq7w"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_qncy5")
+shader_parameter/tex = ExtResource("4_qncy5")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/curve = SubResource("CurveTexture_s437g")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+
+[sub_resource type="QuadMesh" id="QuadMesh_6umxm"]
+material = SubResource("ShaderMaterial_iqq7w")
 
 [node name="Bullet" type="MeshInstance3D"]
-mesh = SubResource("BoxMesh_h1aey")
-surface_material_override/0 = SubResource("StandardMaterial3D_mkf8s")
 script = ExtResource("1_mkf8s")
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 100.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ShaderMaterial_26lx3")
+draw_pass_1 = SubResource("QuadMesh_6umxm")
+script = ExtResource("4_tamys")
+length_seconds = 1.66667
+texture = ExtResource("4_qncy5")
+curve = SubResource("CurveTexture_s437g")
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://b6hmu7slx1qwx"
