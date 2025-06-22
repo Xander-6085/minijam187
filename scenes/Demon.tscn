@@ -66,7 +66,7 @@ material = SubResource("StandardMaterial3D_6p4pk")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3nvcf"]
 radius = 0.792036
-height = 2.50271
+height = 2.49976
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jsukk"]
 radius = 0.594369
@@ -76,7 +76,7 @@ height = 1.64106
 radius = 0.658537
 
 [node name="Demon" type="CharacterBody3D"]
-collision_layer = 1073741841
+collision_layer = 1073741833
 collision_mask = 19
 script = ExtResource("1_g8dsn")
 value = 20
@@ -96,24 +96,28 @@ debug_enabled = true
 debug_path_custom_color = Color(0.877439, 0.237784, 0.431184, 1)
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_layer = 1073741841
-collision_mask = 19
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0690047, 0)
+visible = false
+collision_layer = 1073741840
+collision_mask = 18
 script = ExtResource("8_3nvcf")
 
 [node name="area_collider" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03862, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09932, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_3nvcf")
 
 [node name="body_collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000196099, 0.727653, 0.00209212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000196099, 0.817949, 0.00209212)
 shape = SubResource("CapsuleShape3D_jsukk")
 
 [node name="head" type="StaticBody3D" parent="."]
+visible = false
 collision_layer = 1073741832
 collision_mask = 0
 script = ExtResource("9_ipnrv")
 
 [node name="head_collider" type="CollisionShape3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60626, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58547, 0)
+visible = false
 shape = SubResource("SphereShape3D_3nvcf")

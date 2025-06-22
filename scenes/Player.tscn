@@ -91,6 +91,7 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555355, -0.482721,
 
 [node name="LineOfSightCast" type="RayCast3D" parent="Camera3D/active_gun"]
 target_position = Vector3(0, 0, -1e+07)
+collision_mask = 9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

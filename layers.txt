@@ -1,5 +1,5 @@
 1 - general collision
-2 - idk
+2 - player??
 3 - interactable
 4 - can be shot??
 5 - enemy breakable

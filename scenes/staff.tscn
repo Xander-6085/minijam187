@@ -1,8 +1,23 @@
 [gd_scene load_steps=23 format=4 uid="uid://djaoqwdatrul5"]
 
-[ext_resource type="Material" uid="uid://c5ykxrs7jn54c" path="res://assets/staff_tip.tres" id="1_3gxsk"]
-[ext_resource type="Script" uid="uid://cymx3f72ni5db" path="res://scripts/staff.gd" id="1_ov8dy"]
+[ext_resource type="Material" uid="uid://b48igcv8nrgjo" path="res://assets/staff_tip.tres" id="1_3gxsk"]
+[ext_resource type="Script" path="res://scripts/staff.gd" id="1_ov8dy"]
 [ext_resource type="Shader" uid="uid://dda8lrrjyni4p" path="res://shaders/demon2.gdshader" id="2_ov8dy"]
+
+[sub_resource type="Animation" id="Animation_nf2qa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_xh1k6"]
 resource_name = "shoot"
@@ -27,26 +42,21 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.0698132, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_nf2qa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Model:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e4git"]
 _data = {
 &"RESET": SubResource("Animation_nf2qa"),
 &"shoot": SubResource("Animation_xh1k6")
 }
+
+[sub_resource type="Animation" id="Animation_ov8dy"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sphere")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_3gxsk"]
 resource_name = "sphere_spin"
@@ -58,16 +68,6 @@ tracks/0/path = NodePath("Sphere")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, 0, 0, 1, 0.533333, 1, -0.453229, 0.891394, 3.89641e-08, -4.06921e-08, 0.966667, 1, -2.26267e-08, -8.44439e-08, 0.965926, 0.258819)
-
-[sub_resource type="Animation" id="Animation_ov8dy"]
-length = 0.001
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sphere")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xh1k6"]
 _data = {
@@ -259,5 +259,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_e4git")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(0.997283, 0.0731586, 0.00866362, -0.0735853, 0.983596, 0.164694, 0.00352737, -0.164884, 0.986307, 0.0871187, 0.0490756, -0.946606)
 target_position = Vector3(0, 0, -1e+07)
-collision_mask = 1073741849
+collision_mask = 1073741833
 debug_shape_thickness = 5
