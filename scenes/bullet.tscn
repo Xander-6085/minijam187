@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://cij56j0j8xdai"]
 
 [ext_resource type="Script" uid="uid://doqp6oijh7fx4" path="res://scripts/bullet.gd" id="1_mkf8s"]
-[ext_resource type="Shader" uid="uid://bx4u85g2pie78" path="res://addons/GPUTrail/shaders/trail.gdshader" id="2_eoqba"]
-[ext_resource type="Shader" uid="uid://bp4vk6vyml5ur" path="res://addons/GPUTrail/shaders/trail_draw_pass.gdshader" id="3_qncy5"]
-[ext_resource type="Texture2D" uid="uid://de653n7m06wwo" path="res://addons/GPUTrail/bounce.svg" id="4_qncy5"]
-[ext_resource type="Script" uid="uid://duiue4sb37ttq" path="res://addons/GPUTrail/GPUTrail3D.gd" id="4_tamys"]
+[ext_resource type="Shader" uid="uid://c8uvfhlfdchyo" path="res://addons/GPUTrail/shaders/trail.gdshader" id="2_eoqba"]
+[ext_resource type="Shader" uid="uid://bikl0qrl018t4" path="res://addons/GPUTrail/shaders/trail_draw_pass.gdshader" id="3_qncy5"]
+[ext_resource type="Texture2D" uid="uid://daf51l5x731fg" path="res://addons/GPUTrail/bounce.svg" id="4_qncy5"]
+[ext_resource type="Script" uid="uid://dpjy5gwgw1hv0" path="res://addons/GPUTrail/GPUTrail3D.gd" id="4_tamys"]
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_qncy5"]
 
@@ -39,7 +39,6 @@ mesh = SubResource("PlaceholderMesh_qncy5")
 script = ExtResource("1_mkf8s")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 45
 lifetime = 45.0
 one_shot = true

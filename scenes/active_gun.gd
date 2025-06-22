@@ -2,13 +2,12 @@ extends Node3D
 
 @onready var pistol = $pistol
 
-@onready var guns = [$pistol, $staff]
-var guns_bought = [true, false]
+@onready var guns = [$pistol, $staff, $Shotgun]
+var guns_bought = [true, false, false]
 
 @onready var gun = guns[0]
 var gun_index = 0
 
-var gun_count = 2
 var shoot_timer = -1
 var swap_timer = -1
 @export var swap_time = 0.3
@@ -18,14 +17,15 @@ var swap_timer = -1
 #	gun = $staff
 
 func buy_gun(index):
+	print("Buying: ", index)
 	guns_bought[index] = true
 	swap_to_gun(index)
 
 func swap_to_gun(index):
 	if swap_timer == -1:
 		if index < 0:
-			index = gun_count - 1
-		elif index >= gun_count:
+			index = len(guns) - 1
+		elif index >= len(guns):
 			index = 0
 		if guns_bought[index]:
 			gun.visible = false

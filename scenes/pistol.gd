@@ -13,7 +13,7 @@ var bounty = 0
 func shoot(line_of_sight_raycast):
 	$AnimationPlayer.play("shoot")
 	var bullet = bullet_scene.instantiate()
-	get_parent().add_child(bullet);
+	get_tree().root.add_child(bullet);
 	
 	bullet.global_transform = raycast.global_transform
 	bullet.scale = Vector3.ONE;

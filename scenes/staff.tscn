@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://djaoqwdatrul5"]
 
 [ext_resource type="Material" uid="uid://b48igcv8nrgjo" path="res://assets/staff_tip.tres" id="1_3gxsk"]
-[ext_resource type="Script" path="res://scripts/staff.gd" id="1_ov8dy"]
+[ext_resource type="Script" uid="uid://cymx3f72ni5db" path="res://scripts/staff.gd" id="1_ov8dy"]
 [ext_resource type="Shader" uid="uid://dda8lrrjyni4p" path="res://shaders/demon2.gdshader" id="2_ov8dy"]
 
 [sub_resource type="Animation" id="Animation_nf2qa"]

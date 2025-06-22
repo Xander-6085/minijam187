@@ -104,6 +104,11 @@ weapon_index = 1
 weapon_name = "staff"
 weapon_cost = 30
 
+[node name="cross2" parent="LevelBase/NavigationRegion3D" instance=ExtResource("1_v1he0")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5299e-08, -2.24569, -4.32659, -4.13229)
+weapon_index = 2
+weapon_name = "shotgun"
+
 [node name="Waves" type="Node" parent="LevelBase"]
 
 [node name="Wave1" type="Node" parent="LevelBase/Waves"]
