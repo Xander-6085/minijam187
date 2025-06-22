@@ -6,14 +6,12 @@ func _ready():
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(other):
-	print("body entered: ", other)
 	if other is Angel:
 		demon.attacking_player = other
 	if other is Plank:
 		demon.attacking_window = other.window
 
 func _on_body_exited(other):
-	print("body exited: ", other)
 	if other == demon.attacking_player:
 		demon.attacking_player = null
 	if other == demon.attacking_window:

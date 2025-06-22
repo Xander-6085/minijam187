@@ -13,14 +13,16 @@ extends CharacterBody3D
 var dead = false
 var attacking_player = null
 var attacking_window = null
+var player = null
+
 
 func _ready():
 	nav_agent.max_speed = 5
 
 func _process(delta: float) -> void:
 	if not dead:
-		nav_agent.target_position = %Player.global_position
-		
+		if player != null:
+			nav_agent.target_position = player.global_position
 		var direction = nav_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
 		velocity = velocity.lerp(direction * speed, acceleration * delta)

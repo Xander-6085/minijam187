@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dt5ik1ytj365r"]
+[gd_scene load_steps=19 format=3 uid="uid://df8ibynfxqmno"]
 
-[ext_resource type="Material" path="res://assets/fog1.tres" id="1_6p4pk"]
+[ext_resource type="Material" uid="uid://btlton6nhclq2" path="res://assets/fog1.tres" id="1_6p4pk"]
 [ext_resource type="Script" uid="uid://t4x2kvjbve2i" path="res://scripts/demon.gd" id="1_g8dsn"]
 [ext_resource type="Shader" uid="uid://d0bsv3al3e4rn" path="res://shaders/pixel2.gdshader" id="2_jsukk"]
 [ext_resource type="Shader" uid="uid://cx03bm66grn0" path="res://shaders/highlight.gdshader" id="2_lf8ei"]
@@ -76,7 +76,7 @@ height = 1.87434
 radius = 0.584152
 
 [node name="Demon" type="CharacterBody3D"]
-collision_layer = 17
+collision_layer = 2147483665
 collision_mask = 19
 script = ExtResource("1_g8dsn")
 

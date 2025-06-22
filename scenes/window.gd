@@ -19,7 +19,14 @@ func _process(delta):
 		damage_timer += delta # countdown
 		if damage_timer > damage_speed:
 			damage_timer = -1
-	
+
+func random_point_in_spawn_area():
+	var area = $ViableSpawnArea/CollisionShape3D
+	var shape = area.shape
+	var origin = area.global_position
+	var size = shape.extents
+	return origin + Vector3(randf_range(-size.x, size.x), 0, randf_range(-size.z, size.z))
+
 func fix():
 	if fix_timer == -1 and plank_count < 3:
 		plank_count += 1
