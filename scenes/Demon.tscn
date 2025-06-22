@@ -12,11 +12,11 @@ radius = 0.792036
 height = 2.50271
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jsukk"]
-radius = 0.624226
-height = 1.92219
+radius = 0.594369
+height = 1.64106
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3nvcf"]
-radius = 0.584152
+radius = 0.658537
 
 [node name="Demon" type="CharacterBody3D"]
 collision_layer = 1073741841
@@ -44,10 +44,11 @@ script = ExtResource("8_3nvcf")
 
 [node name="area_collider" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03862, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_3nvcf")
 
 [node name="body_collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.821055, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000196099, 0.727653, 0.00209212)
 shape = SubResource("CapsuleShape3D_jsukk")
 
 [node name="head" type="StaticBody3D" parent="."]

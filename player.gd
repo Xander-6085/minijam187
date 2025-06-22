@@ -56,15 +56,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("shoot") and active_gun.can_shoot(light):
-		light -= active_gun.get_ammo_cost()
-		var shot_success = active_gun.shoot()
-		if shot_success > 0:
-			print("hit!")
-			activate_hit_marker(shot_success)
-			light += active_gun.claim_bounty()
-		else:
-			print("miss...")
+	if Input.is_action_pressed("shoot"):
+		if active_gun.can_shoot(light):
+			light -= active_gun.get_ammo_cost()
+			var shot_success = active_gun.shoot()
+			if shot_success > 0:
+				print("hit!")
+				activate_hit_marker(shot_success)
+				light += active_gun.claim_bounty()
+			else:
+				print("miss...")
+	else:
+		active_gun.stop_shooting()
 	if Input.is_action_pressed("crouch"):
 		if not crouched:
 			_crouch()
