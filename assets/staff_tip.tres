@@ -1,18 +1,9 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b48igcv8nrgjo"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b48igcv8nrgjo"]
 
-[ext_resource type="Shader" uid="uid://dda8lrrjyni4p" path="res://shaders/demon2.gdshader" id="1_f3f8y"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kckb4"]
-render_priority = 0
-shader = ExtResource("1_f3f8y")
-shader_parameter/aura_color = Vector4(0.275, 0.42, 0, 0.5)
-shader_parameter/outline_width = 0.02
-shader_parameter/time_scale = 1.0
-shader_parameter/noise_scale = 0.669
-shader_parameter/alpha_cutoff = 0.397
+[ext_resource type="Material" uid="uid://dx02w3c4ruxjm" path="res://assets/staff-glow.tres" id="1_f3f8y"]
 
 [resource]
-next_pass = SubResource("ShaderMaterial_kckb4")
+next_pass = ExtResource("1_f3f8y")
 no_depth_test = true
 diffuse_mode = 3
 specular_mode = 1

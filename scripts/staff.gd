@@ -6,7 +6,7 @@ const ENEMY_LAYER = 31
 @export var ammo_cost = 0.1
 
 @onready var raycast = $RayCast3D
-@onready var bullet_scene = load("res://scenes/bullet.tscn")
+@onready var bullet_scene = load("res://scenes/bullet_staff.tscn")
 
 var bounty = 0
 

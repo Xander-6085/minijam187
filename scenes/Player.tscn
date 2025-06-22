@@ -91,7 +91,7 @@ ammo_cost = 1.0
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555355, -0.482721, -0.770144)
 
 [node name="Shotgun" parent="Camera3D/active_gun" instance=ExtResource("5_bruh7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543206, -0.627272, -1.11277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543206, -0.627272, -0.52421)
 visible = false
 
 [node name="LineOfSightCast" type="RayCast3D" parent="Camera3D/active_gun"]

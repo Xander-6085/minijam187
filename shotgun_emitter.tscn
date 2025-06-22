@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwprvdu1ra8t"]
+
+[ext_resource type="Material" uid="uid://r48ouufld7nn" path="res://assets/bullet2.tres" id="1_wpny7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l5glv"]
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 0, -0.275)
+spread = 4.172
+initial_velocity_min = 91.5
+initial_velocity_max = 91.5
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eoqba"]
+material = ExtResource("1_wpny7")
+size = Vector3(0.3, 0.3, 3.265)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+amount = 83
+amount_ratio = 0.182
+lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_l5glv")
+draw_pass_1 = SubResource("BoxMesh_eoqba")

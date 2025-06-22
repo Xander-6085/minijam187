@@ -5,7 +5,7 @@ const ENEMY_LAYER = 31
 @export var damage = 5
 @export var ammo_cost = 10
 
-@onready var bullet_scene = load("res://scenes/bullet.tscn")
+@onready var bullet_scene = load("res://scenes/bullet_shotgun.tscn")
 
 var bounty = 0
 

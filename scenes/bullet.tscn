@@ -1,57 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://cij56j0j8xdai"]
+[gd_scene load_steps=4 format=3 uid="uid://cij56j0j8xdai"]
 
 [ext_resource type="Script" uid="uid://doqp6oijh7fx4" path="res://scripts/bullet.gd" id="1_mkf8s"]
-[ext_resource type="Shader" uid="uid://c8uvfhlfdchyo" path="res://addons/GPUTrail/shaders/trail.gdshader" id="2_eoqba"]
-[ext_resource type="Shader" uid="uid://bikl0qrl018t4" path="res://addons/GPUTrail/shaders/trail_draw_pass.gdshader" id="3_qncy5"]
-[ext_resource type="Texture2D" uid="uid://daf51l5x731fg" path="res://addons/GPUTrail/bounce.svg" id="4_qncy5"]
-[ext_resource type="Script" uid="uid://dpjy5gwgw1hv0" path="res://addons/GPUTrail/GPUTrail3D.gd" id="4_tamys"]
 
-[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_qncy5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_26lx3"]
-shader = ExtResource("2_eoqba")
-
-[sub_resource type="Curve" id="Curve_in4mv"]
-bake_resolution = 16
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_s437g"]
-curve = SubResource("Curve_in4mv")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqq7w"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_qncy5")
-shader_parameter/tex = ExtResource("4_qncy5")
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/curve = SubResource("CurveTexture_s437g")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
-
-[sub_resource type="QuadMesh" id="QuadMesh_6umxm"]
-material = SubResource("ShaderMaterial_iqq7w")
+[sub_resource type="BoxMesh" id="BoxMesh_mkf8s"]
+size = Vector3(0.096, 0.097, 0.587)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qncy5"]
 
 [node name="Bullet" type="MeshInstance3D"]
-mesh = SubResource("PlaceholderMesh_qncy5")
+mesh = SubResource("BoxMesh_mkf8s")
 script = ExtResource("1_mkf8s")
-
-[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
-amount = 45
-lifetime = 45.0
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 60
-process_material = SubResource("ShaderMaterial_26lx3")
-draw_pass_1 = SubResource("QuadMesh_6umxm")
-script = ExtResource("4_tamys")
-length = 45
-length_seconds = 0.75
-texture = ExtResource("4_qncy5")
-curve = SubResource("CurveTexture_s437g")
-_defaults_have_been_set = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 3221225499

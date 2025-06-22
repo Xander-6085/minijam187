@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgn64tuh2422p"]
+
+[ext_resource type="Script" uid="uid://doqp6oijh7fx4" path="res://scripts/bullet.gd" id="1_bmq5u"]
+[ext_resource type="PackedScene" uid="uid://diwprvdu1ra8t" path="res://shotgun_emitter.tscn" id="2_xxgpm"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_qncy5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qncy5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgwm1"]
+albedo_color = Color(12.805, 13.415, 14.635, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e1lgg"]
+material = SubResource("StandardMaterial3D_qgwm1")
+size = Vector3(0.065, 0.092, 0.245)
+
+[node name="Bullet" type="MeshInstance3D"]
+mesh = SubResource("PlaceholderMesh_qncy5")
+script = ExtResource("1_bmq5u")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3221225499
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_qncy5")
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("2_xxgpm")]
+amount = 5
+lifetime = 0.05
+draw_pass_1 = SubResource("BoxMesh_e1lgg")

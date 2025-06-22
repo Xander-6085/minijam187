@@ -14,8 +14,8 @@ func shoot(line_of_sight_raycast):
 	$AnimationPlayer.play("shoot")
 	var bullet = bullet_scene.instantiate()
 	get_tree().root.add_child(bullet);
-	
 	bullet.global_transform = raycast.global_transform
+	bullet.look_at(bullet.to_global(line_of_sight_raycast.target_position))
 	bullet.scale = Vector3.ONE;
 	
 	line_of_sight_raycast.force_raycast_update()
