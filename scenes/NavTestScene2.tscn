@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://br4fkn62k8jv0"]
+[gd_scene load_steps=8 format=3 uid="uid://br4fkn62k8jv0"]
 
 [ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="1_3aewr"]
+[ext_resource type="PackedScene" uid="uid://icduv0yxbhwv" path="res://scenes/dog.tscn" id="3_3ujl2"]
 [ext_resource type="Texture2D" uid="uid://c44d25h6hmjce" path="res://assets/icon_outlined.png" id="6_7iepo"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n77mx"]
@@ -41,6 +42,7 @@ volumetric_fog_temporal_reprojection_amount = 0.675
 [node name="Player" parent="." instance=ExtResource("1_3aewr")]
 unique_name_in_owner = true
 transform = Transform3D(-0.97753, 0, -0.210796, 0, 1, 0, 0.210796, 0, -0.97753, 0.0491924, 0, -12.7082)
+mouse_sensitivity = 0.22
 max_light = 100000.0
 starting_light = 100000
 
@@ -94,3 +96,6 @@ size = Vector3(1, 1, 0.64682)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5dm6")
+
+[node name="Dog" parent="." instance=ExtResource("3_3ujl2")]
+transform = Transform3D(-0.472812, 0, 0.881163, 0, 1, 0, -0.881163, 0, -0.472812, 8.76051, 1.22199, -0.897746)
