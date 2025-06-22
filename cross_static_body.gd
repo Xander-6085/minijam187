@@ -1,7 +1,11 @@
 extends StaticBody3D
 
+@onready var cross = $"../.."
+
 func interact(player):
-	player.light += 10
+	if player.light >= cross.weapon_cost:
+		player.light -= cross.weapon_cost
+		player.active_gun.buy_gun(cross.weapon_index)
 
 func get_interact_text():
-	return "Press E to buy shotgun (Cost: 1000)"
+	return str("Press E to buy ", cross.weapon_name, " (Cost: ", cross.weapon_cost, ")")

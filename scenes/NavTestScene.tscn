@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="1_udwu0"]
 [ext_resource type="Script" uid="uid://t4x2kvjbve2i" path="res://scripts/demon.gd" id="2_0q7tt"]
-[ext_resource type="Material" uid="uid://btlton6nhclq2" path="res://assets/fog1.tres" id="3_711dh"]
+[ext_resource type="Material" path="res://assets/fog1.tres" id="3_711dh"]
 [ext_resource type="Shader" uid="uid://cx03bm66grn0" path="res://shaders/highlight.gdshader" id="3_hbvo2"]
 [ext_resource type="Texture2D" uid="uid://c44d25h6hmjce" path="res://assets/icon_outlined.png" id="3_mjpd1"]
 [ext_resource type="Shader" uid="uid://cxmdge21w1m5" path="res://shaders/pixel.gdshader" id="4_711dh"]
@@ -63,26 +63,26 @@ material = SubResource("StandardMaterial3D_6p4pk")
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nb1wl"]
 panorama = ExtResource("3_mjpd1")
 
-[sub_resource type="Sky" id="Sky_711dh"]
+[sub_resource type="Sky" id="Sky_mdmvd"]
 sky_material = SubResource("PanoramaSkyMaterial_nb1wl")
 
 [sub_resource type="Environment" id="Environment_m5dm6"]
 background_mode = 1
 background_color = Color(0.156893, 0.187417, 0.185929, 1)
 background_energy_multiplier = 1.24
-sky = SubResource("Sky_711dh")
+sky = SubResource("Sky_mdmvd")
 sky_custom_fov = 137.1
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.03
 ambient_light_energy = 4.23
-glow_enabled = true
 fog_light_color = Color(0.616379, 0.649052, 0.700388, 1)
 fog_light_energy = 0.95
 fog_density = 0.0033
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
+volumetric_fog_emission_energy = 18.18
 volumetric_fog_anisotropy = 0.36
-volumetric_fog_length = 24.46
+volumetric_fog_length = 239.25
 volumetric_fog_detail_spread = 3.73213
 volumetric_fog_ambient_inject = 0.71
 volumetric_fog_sky_affect = 0.07
@@ -156,6 +156,7 @@ shape = SubResource("CapsuleShape3D_jsukk")
 
 [node name="FogVolumeNegativeDensity2" type="FogVolume" parent="Demon"]
 transform = Transform3D(0.14285, 0, 0, 0, 0.18334, 0, 0, 0, 0.105661, -0.0523127, 1.02756, -0.344619)
+visible = false
 size = Vector3(11.8454, 14.4972, 22.0318)
 material = ExtResource("3_711dh")
 

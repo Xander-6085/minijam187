@@ -82,10 +82,12 @@ script = ExtResource("2_mdl7e")
 
 [node name="staff" parent="Camera3D/active_gun" instance=ExtResource("3_khinc")]
 transform = Transform3D(0.999997, 0.00180421, 0.00155782, -0.00146268, 0.980476, -0.196635, -0.00188216, 0.196632, 0.980475, 0.597099, -1.0424, -1.32783)
+visible = false
+damage = 2.0
+ammo_cost = 1.0
 
 [node name="pistol" parent="Camera3D/active_gun" instance=ExtResource("2_3li8b")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555355, -0.482721, -0.770144)
-visible = false
 
 [node name="LineOfSightCast" type="RayCast3D" parent="Camera3D/active_gun"]
 target_position = Vector3(0, 0, -1e+07)

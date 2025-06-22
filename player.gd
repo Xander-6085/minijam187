@@ -15,6 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var fixable_window = null
 var crouched = false
 var invuln_timer = -1
+var hit_tween = null
+var crit_tween = null
 
 @onready var model = $Rig
 @onready var interact_cast = $Camera3D/interact_cast
@@ -85,7 +87,10 @@ func _process(delta: float) -> void:
 		invuln_timer += delta # countdown
 		if invuln_timer > invuln_time:
 			invuln_timer = -1
-			
+	if Input.is_action_just_pressed("jump"):
+		var foo = %LevelBase;
+		foo.run_wave(0)
+		
 	light_text.text = str(int(light), " / ", int(max_light))
 
 
@@ -102,6 +107,9 @@ func _input(event):
 
 func is_in_window_area(window):
 	fixable_window = window
+	
+func left_window_area():
+	fixable_window = null
 
 func _crouch():
 	#Use a tween to make it smoother
@@ -129,10 +137,14 @@ func activate_hit_marker(shot_success):
 	var crit_marker = $"CanvasLayer/Control/Crit-hit"
 	
 	if shot_success == 1:
+		if hit_tween != null:
+			hit_tween.kill()
 		hit_marker.modulate = Color.WHITE
-		var t := create_tween()
-		t.tween_property(hit_marker, "modulate", Color.TRANSPARENT, hitmarker_fadetime)
+		hit_tween = create_tween()
+		hit_tween.tween_property(hit_marker, "modulate", Color.TRANSPARENT, hitmarker_fadetime)
 	else:
+		if crit_tween != null:
+			crit_tween.kill()
 		crit_marker.modulate = Color.LIGHT_CORAL
-		var t := create_tween()
-		t.tween_property(crit_marker, "modulate", Color.TRANSPARENT, hitmarker_fadetime)
+		crit_tween = create_tween()
+		crit_tween.tween_property(crit_marker, "modulate", Color.TRANSPARENT, hitmarker_fadetime)
