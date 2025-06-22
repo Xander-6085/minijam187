@@ -9,7 +9,9 @@ func _ready():
 	nav_agent.max_speed = 5
 
 func _process(delta: float) -> void:
-	nav_agent.target_position = %Player.global_position
+	var player = %Player
+	if player:
+		nav_agent.target_position = player.global_position
 	
 	var direction = nav_agent.get_next_path_position() - global_position
 	direction = direction.normalized()

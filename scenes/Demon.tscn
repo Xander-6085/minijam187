@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt5ik1ytj365r"]
+[gd_scene load_steps=14 format=3 uid="uid://dt5ik1ytj365r"]
 
-[ext_resource type="Material" uid="uid://btlton6nhclq2" path="res://assets/fog1.tres" id="1_6p4pk"]
 [ext_resource type="Script" uid="uid://t4x2kvjbve2i" path="res://scripts/demon.gd" id="1_g8dsn"]
 [ext_resource type="Shader" uid="uid://d0bsv3al3e4rn" path="res://shaders/pixel2.gdshader" id="2_jsukk"]
 [ext_resource type="Shader" uid="uid://cx03bm66grn0" path="res://shaders/highlight.gdshader" id="2_lf8ei"]
@@ -73,13 +72,7 @@ mesh = SubResource("CapsuleMesh_tntch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978705, 0)
-visible = false
 shape = SubResource("CapsuleShape3D_jsukk")
-
-[node name="FogVolumeNegativeDensity2" type="FogVolume" parent="."]
-transform = Transform3D(0.14285, 0, 0, 0, 0.18334, 0, 0, 0, 0.105661, -0.163361, 1.02756, -0.0217109)
-size = Vector3(19.2466, 14.4972, 18)
-material = ExtResource("1_6p4pk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
