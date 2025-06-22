@@ -54,7 +54,6 @@ radius = 3.44336
 
 [node name="Cross" type="MeshInstance3D"]
 transform = Transform3D(0.462245, 0, 0, 0, 3.76434, 0, 0, 0, 0.43964, 0, 0, 0)
-layers = 7
 mesh = SubResource("ArrayMesh_11dmv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0rgjp")

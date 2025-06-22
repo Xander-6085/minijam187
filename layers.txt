@@ -1,0 +1,5 @@
+1 - general collision
+2 - idk
+3 - interactable
+4 - idk
+5 - enemy breakable

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3flgk8ad1se0"]
+[gd_scene load_steps=7 format=3 uid="uid://b3flgk8ad1se0"]
 
 [ext_resource type="PackedScene" uid="uid://bt8m0hccx85yp" path="res://item-shop.tscn" id="1_v1he0"]
 [ext_resource type="PackedScene" uid="uid://ex3qldq6oyy6" path="res://scenes/Player.tscn" id="2_8wkqr"]
 [ext_resource type="PackedScene" uid="uid://dhl5yt3pf1nbh" path="res://door.tscn" id="2_v1he0"]
 [ext_resource type="Script" uid="uid://dks8p6gqnlbm2" path="res://breakable_box.gd" id="3_q5mje"]
+[ext_resource type="PackedScene" uid="uid://ccjvvlge3tb6w" path="res://scenes/window.tscn" id="4_er2c1"]
 
 [sub_resource type="Environment" id="Environment_a202f"]
 
@@ -77,12 +78,15 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.0184202, 0.393835
 transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -3.77211, 0.418741, 2.22411)
 
 [node name="breakable_box" type="CSGBox3D" parent="Level Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.36139, 1.53684, 1.71851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3804, 1.53684, 1.73284)
 layers = 9
 use_collision = true
 collision_layer = 9
 collision_mask = 0
 script = ExtResource("3_q5mje")
+
+[node name="window" parent="Level Base" instance=ExtResource("4_er2c1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.3199, 2.68333, 2.20221)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("2_8wkqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666455, 0)

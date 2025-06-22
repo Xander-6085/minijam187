@@ -9,6 +9,8 @@ class_name Angel
 @export var starting_light = 50
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var fixable_window = null
+var crouched = false
 
 @onready var model = $Rig
 @onready var interact_cast = $Camera3D/interact_cast
@@ -19,7 +21,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	get:
 		return light
 	set(value):
-		print(max_light)
 		light = clamp(value, 0, max_light)
 		var v = light / max_light;
 		v = lerp(0.3, -1.0, v);
@@ -30,7 +31,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	light = starting_light
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
 
 func _physics_process(delta):
 	interact_text.hide()
@@ -52,14 +52,18 @@ func _physics_process(delta):
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("shoot") and active_gun.can_shoot(light):
-		print("before:")
-		print(light)
 		light -= active_gun.get_ammo_cost()
 		var shot_success = active_gun.shoot()
 		if shot_success > 0:
+			print("hit!")
 			light += active_gun.claim_bounty()
-		print("after:")
-		print(light)
+		else:
+			print("miss...")
+	if Input.is_action_pressed("crouch"):
+		if not crouched:
+			_crouch()
+	elif crouched:
+		_uncrouch()
 
 
 func _input(event):
@@ -72,3 +76,20 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func is_in_window_area(window):
+	fixable_window = window
+
+func _crouch():
+	#Use a tween to make it smoother
+	var t := create_tween()
+	#Tween y axis of the collision shape to 0.5 in 0.1 second
+	t.tween_property($CollisionShape3D, "scale:y", 0.5, 0.1)
+	t.tween_property($Camera3D, "scale:y", 0.5, 0.1)
+	crouched = true
+	
+func _uncrouch():
+	var t := create_tween()
+	t.tween_property($CollisionShape3D, "scale:y", 1, 0.1)
+	t.tween_property($Camera3D, "scale:y", 1, 0.1)
+	crouched = false
