@@ -7,7 +7,7 @@ func get_ammo_cost():
 	return gun.get_ammo_cost()
 
 func shoot():
-	var hit_success = gun.shoot() # 0 = no hit, 1 = hit, 2 = crit
+	var hit_success = gun.shoot($LineOfSightCast) # 0 = no hit, 1 = hit, 2 = crit
 	shoot_timer = 0
 	return hit_success
 	

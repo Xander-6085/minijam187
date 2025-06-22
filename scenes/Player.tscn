@@ -82,6 +82,9 @@ script = ExtResource("2_mdl7e")
 [node name="pistol" parent="Camera3D/active_gun" instance=ExtResource("2_3li8b")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555355, -0.482721, -0.770144)
 
+[node name="LineOfSightCast" type="RayCast3D" parent="Camera3D/active_gun"]
+target_position = Vector3(0, 0, -1e+07)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]

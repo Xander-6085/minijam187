@@ -10,7 +10,7 @@ const ENEMY_LAYER = 31
 
 var bounty = 0
 
-func shoot():
+func shoot(line_of_sight_raycast):
 	$AnimationPlayer.play("shoot")
 	var bullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet);
@@ -18,11 +18,11 @@ func shoot():
 	bullet.global_transform = raycast.global_transform
 	bullet.scale = Vector3.ONE;
 	
-	raycast.force_raycast_update()
-	if !raycast.is_colliding():
+	line_of_sight_raycast.force_raycast_update()
+	if !line_of_sight_raycast.is_colliding():
 		print("no collision")
 		return 0
-	var collider = raycast.get_collider()
+	var collider = line_of_sight_raycast.get_collider()
 	if collider is CollisionObject3D and collider.get_collision_layer_value(ENEMY_LAYER):
 		if collider.has_method("damage") and "dead" in collider:
 			if !collider.dead:

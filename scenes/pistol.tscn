@@ -118,7 +118,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0804935, 0.0490755, -7.02299)
 visible = false
 target_position = Vector3(0, 0, -1e+07)
-collision_mask = 25
+collision_mask = 1073741849
 debug_shape_thickness = 5
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
