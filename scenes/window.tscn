@@ -47,6 +47,7 @@ size = Vector3(7.74835, 1, 4.552)
 
 [node name="window" instance=ExtResource("1_oya5r")]
 script = ExtResource("2_qvkcj")
+damage_speed = 1.0
 
 [node name="Plank1" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_to7fh")

@@ -96,8 +96,8 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
+		rotate_y(-event.relative.x * mouse_sensitivity / 100)
+		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity / 100)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	if event.is_action_pressed("ui_cancel"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:

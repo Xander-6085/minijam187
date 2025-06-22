@@ -55,7 +55,6 @@ shader_parameter/seed = 5.0
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_v6fml")
-light_from_fixing_windows = 50
 
 [node name="Rig" type="Node3D" parent="."]
 
@@ -79,6 +78,7 @@ collision_mask = 4
 
 [node name="active_gun" type="Node3D" parent="Camera3D"]
 script = ExtResource("2_mdl7e")
+swap_time = 0.1
 
 [node name="staff" parent="Camera3D/active_gun" instance=ExtResource("3_khinc")]
 transform = Transform3D(0.999997, 0.00180421, 0.00155782, -0.00146268, 0.980476, -0.196635, -0.00188216, 0.196632, 0.980475, 0.597099, -1.0424, -1.32783)
