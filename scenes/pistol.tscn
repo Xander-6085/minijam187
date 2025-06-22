@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://lo8ooq1y0dh"]
+[gd_scene load_steps=10 format=4 uid="uid://lo8ooq1y0dh"]
 
 [ext_resource type="Script" uid="uid://bbli35kvnhscj" path="res://scenes/pistol.gd" id="1_igbvm"]
 
@@ -74,26 +74,60 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pgdpd")
 
+[sub_resource type="Animation" id="Animation_igbvm"]
+resource_name = "shoot"
+length = 0.2
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0.266498, 0, 0, 0.963835, 0.1, 1, 0.433383, 0, 0, 0.90121, 0.2, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_buff3"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1e3ry"]
+_data = {
+&"RESET": SubResource("Animation_buff3"),
+&"shoot": SubResource("Animation_igbvm")
+}
+
 [node name="pistol" type="Node3D"]
 script = ExtResource("1_igbvm")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7, 0, -0.108319, -0.531237)
 mesh = SubResource("ArrayMesh_7w0tf")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 7, 0.00110403, -1.86922, -0.0226651)
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 7, 0.00110403, -1.7609, -0.448216)
 mesh = SubResource("ArrayMesh_p4ywk")
 skeleton = NodePath("")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0804935, 0.0490755, -7.02299)
+visible = false
 target_position = Vector3(0, 0, -1e+07)
 collision_mask = 9
 debug_shape_thickness = 5
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -9.13656e-07, -27.928)
+visible = false
 radius = 0.0473633
 height = 43.804
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1e3ry")
+}

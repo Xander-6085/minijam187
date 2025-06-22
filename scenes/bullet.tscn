@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cij56j0j8xdai"]
+[gd_scene load_steps=12 format=3 uid="uid://cij56j0j8xdai"]
 
 [ext_resource type="Script" uid="uid://doqp6oijh7fx4" path="res://scripts/bullet.gd" id="1_mkf8s"]
 [ext_resource type="Shader" uid="uid://5l1hxb5f1of0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="2_eoqba"]
 [ext_resource type="Shader" uid="uid://bikl0qrl018t4" path="res://addons/GPUTrail/shaders/trail_draw_pass.gdshader" id="3_qncy5"]
 [ext_resource type="Texture2D" uid="uid://dhfeq3f1l4usw" path="res://addons/GPUTrail/bounce.svg" id="4_qncy5"]
 [ext_resource type="Script" uid="uid://b6hmu7slx1qwx" path="res://addons/GPUTrail/GPUTrail3D.gd" id="4_tamys"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qncy5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26lx3"]
 shader = ExtResource("2_eoqba")
@@ -31,19 +33,21 @@ shader_parameter/flags = 40
 material = SubResource("ShaderMaterial_iqq7w")
 
 [node name="Bullet" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_qncy5")
 script = ExtResource("1_mkf8s")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 100
-lifetime = 100.0
+amount = 45
+lifetime = 0.05
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ShaderMaterial_26lx3")
 draw_pass_1 = SubResource("QuadMesh_6umxm")
 script = ExtResource("4_tamys")
-length_seconds = 1.66667
+length = 45
+length_seconds = 0.75
 texture = ExtResource("4_qncy5")
 curve = SubResource("CurveTexture_s437g")
 _defaults_have_been_set = true
