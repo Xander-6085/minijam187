@@ -1,8 +1,10 @@
 extends Area3D
 
-var player = null
 @onready var window = $".."
+
+func _ready():
+	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(other):
 	if other is Angel:
-		player.is_in_window_area(window)
+		other.is_in_window_area(window)

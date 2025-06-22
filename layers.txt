@@ -1,5 +1,7 @@
 1 - general collision
 2 - idk
 3 - interactable
-4 - idk
+4 - can be shot??
 5 - enemy breakable
+
+How to make demons drop down from window with navigation

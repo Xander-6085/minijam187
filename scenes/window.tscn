@@ -82,11 +82,11 @@ collision_mask = 0
 script = ExtResource("4_qnju7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enclosure/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_qnju7")
 
 [node name="Area3D" type="Area3D" parent="." index="4"]
-collision_mask = 0
+collision_mask = 3
+priority = 1
 script = ExtResource("5_ato5p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]

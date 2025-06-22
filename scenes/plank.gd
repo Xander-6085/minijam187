@@ -1,11 +1,14 @@
 extends StaticBody3D
+class_name Plank
 
 @onready var window = $"../.."
 @onready var plank = $".."
 
-func interact():
-	print(interact)
-	window.damage()
+func interact(player):
+	window.damage(1)
+	
+func damage(amount):
+	window.damage(amount)
 
 func get_interact_text():
 	return "destroy plank"

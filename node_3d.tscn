@@ -10,6 +10,7 @@ metallic = 0.76
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xowi"]
 
 [sub_resource type="Environment" id="Environment_a202f"]
+volumetric_fog_enabled = true
 
 [node name="TestScene" type="Node3D"]
 

@@ -2,7 +2,7 @@ extends StaticBody3D
 
 @onready var window = $"../.."
 
-func interact():
+func interact(player):
 	print(interact)
 	window.fix()
 

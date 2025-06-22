@@ -23,7 +23,6 @@ func shoot():
 		return 0
 	var collider = raycast.get_collider()
 	if collider.has_method("damage") and !collider.dead:
-		print("damaged")
 		collider.damage(damage)
 		if collider.dead:
 			print("dead")
