@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://ex3qldq6oyy6"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://baxarjpvjlu56" path="res://player.gd" id="1_v6fml"]
 [ext_resource type="PackedScene" uid="uid://lo8ooq1y0dh" path="res://scenes/pistol.tscn" id="2_3li8b"]
 [ext_resource type="Script" uid="uid://dyt7mbb1g7im" path="res://scenes/active_gun.gd" id="2_mdl7e"]
 [ext_resource type="PackedScene" uid="uid://djaoqwdatrul5" path="res://scenes/staff.tscn" id="3_khinc"]
@@ -17,7 +17,7 @@ metallic = 0.76
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xowi"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_bruh7"]
-length = 0.60006
+length = 1.15771
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6fml"]
 bg_color = Color(0.133196, 0.133196, 0.133196, 1)
@@ -75,7 +75,7 @@ visible = false
 shape = SubResource("CapsuleShape3D_4xowi")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.784798, -0.916251)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.88113, -0.916251)
 shape = SubResource("SeparationRayShape3D_bruh7")
 
 [node name="Camera3D" type="Camera3D" parent="."]

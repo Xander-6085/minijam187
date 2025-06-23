@@ -20,9 +20,9 @@ func _process(delta):
 			queue_free()
 
 func _unlock_windows():
-	if window1 != null:
+	if window1 != null and get_node(window1) != null:
 		get_node(window1).unlocked = true
-	if window2 != null:
+	if window2 != null and get_node(window2) != null:
 		get_node(window2).unlocked = true
-	if window3 != null:
+	if window3 != null and get_node(window3) != null:
 		get_node(window3).unlocked = true

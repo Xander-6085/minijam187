@@ -12,7 +12,10 @@ static var enemy_types = [
 	load("res://scenes/Demon.tscn")
 ]
 
-var wave_num = 0
+var wave_num = -1
+var new_wave_timer = -1
+@export var total_waves = 1
+@export var new_wave_time = 5
 
 func run_wave(wave_num: int):
 	print("starting wave ", wave_num);
@@ -59,9 +62,15 @@ func spawn_enemy(enemy_type: EnemyType) -> Node3D:
 
 func _process(delta: float) -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
-	if len(enemies) == 0:
+	if new_wave_timer == -1 and len(enemies) == 0 and wave_num < total_waves-1:
+		print("wave_num: ", wave_num)
 		wave_num += 1
+		new_wave_timer = 0
 		run_wave(wave_num)
+	if new_wave_timer != -1:
+		new_wave_timer += delta # countdown
+		if new_wave_timer > new_wave_time: # we can shoot again
+			new_wave_timer = -1
 	# 1. 
 	# 2. spawn N demons until window full
 	# 3. wait?

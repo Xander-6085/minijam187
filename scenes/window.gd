@@ -7,7 +7,7 @@ extends Node3D
 var plank_count = 3
 var fix_timer = -1
 var damage_timer = -1
-var unlocked = false
+@export var unlocked = false
 @export var fix_speed = 1.5
 @export var damage_speed = 1.25
 
