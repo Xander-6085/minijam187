@@ -148,3 +148,7 @@ func activate_hit_marker(shot_success):
 		crit_marker.modulate = Color.LIGHT_CORAL
 		crit_tween = create_tween()
 		crit_tween.tween_property(crit_marker, "modulate", Color.TRANSPARENT, hitmarker_fadetime)
+
+func win_game():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://scenes/you_win.tscn")

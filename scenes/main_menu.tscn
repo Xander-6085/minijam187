@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://di00dkkmuk5vu"]
+[gd_scene load_steps=9 format=4 uid="uid://c5jv5wwgkkxn1"]
 
 [ext_resource type="Script" uid="uid://bbpbtj4200dkc" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cq8kaw2slytpx" path="res://assets/fonts/Spectral-Bold.ttf" id="2_bqqt6"]

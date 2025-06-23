@@ -79,6 +79,7 @@ radius = 0.658537
 collision_layer = 1073741833
 collision_mask = 19
 script = ExtResource("1_g8dsn")
+speed = 4
 value = 20
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://soc478x6o55v"
-path="res://.godot/imported/steel-roasting-of-the-boar.blend-dd54356b5e01480d693e0f0448bdcddd.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/steel-roasting-of-the-boar.blend"
-dest_files=["res://.godot/imported/steel-roasting-of-the-boar.blend-dd54356b5e01480d693e0f0448bdcddd.scn"]
 
 [params]
 
