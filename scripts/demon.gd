@@ -16,6 +16,7 @@ var attacking_window = null
 var player = null
 
 func _process(delta: float) -> void:
+	print("Dog yee")
 	if not dead:
 		if player == null:
 			player = %Player
