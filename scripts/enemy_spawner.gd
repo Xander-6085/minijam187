@@ -19,8 +19,9 @@ static var enemy_types = [
 var wave_num = -1
 var new_wave_timer = -1
 var total_waves = 1
-@export var new_wave_time = 5
 
+@export var new_wave_time = 5
+@onready var player = %Player
 
 func _ready() -> void:
 	total_waves = len($Waves.get_children())
@@ -28,7 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		boss()
-		
+
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	if new_wave_timer == -1:
 		print(enemies)
@@ -42,10 +43,13 @@ func _process(delta: float) -> void:
 		if new_wave_timer > new_wave_time: # we can shoot again
 			new_wave_timer = -1
 
-
 func run_wave(wave_num: int):
 	print("starting wave ", wave_num);
+	player.round_text.text = str("Round ", wave_num + 1)
 	var wave: Wave = $Waves.get_children()[wave_num]
+	for subwave in wave.subwaves:
+		player.enemies += subwave.number_to_spawn
+		
 	for subwave in wave.subwaves:
 		print("Spawning subwave: ", subwave)
 		await run_subwave(subwave)

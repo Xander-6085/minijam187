@@ -17,12 +17,15 @@ var crouched = false
 var invuln_timer = -1
 var hit_tween = null
 var crit_tween = null
+var enemies = 0
 
 @onready var model = $Rig
 @onready var interact_cast = $Camera3D/interact_cast
 @onready var interact_text = $CanvasLayer/BoxContainer/interact_text
 @onready var light_text = $CanvasLayer/light_text
 @onready var active_gun = $Camera3D/active_gun
+@onready var round_text = $CanvasLayer/round
+@onready var demons_left_text = $CanvasLayer/demons_left
 
 @onready var light : float = 0:
 	get:
@@ -65,7 +68,10 @@ func _process(delta: float) -> void:
 			if shot_success > 0:
 				print("hit!")
 				activate_hit_marker(shot_success)
-				light += active_gun.claim_bounty()
+				var bounty = active_gun.claim_bounty()
+				light += bounty
+				if bounty > 0:
+					enemies -= 1
 			else:
 				print("miss...")
 	else:
@@ -90,6 +96,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		var foo = %LevelBase;
 		foo.run_wave(0)
+	
+	
+	demons_left_text.text = str("Demons Left: ", enemies)
 		
 	light_text.text = str(int(light), " / ", int(max_light))
 

@@ -198,3 +198,21 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(19, 18)
 scale = Vector2(0.241211, 0.241211)
 texture = ExtResource("7_khinc")
+
+[node name="round" type="Label" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 18.0
+offset_right = 274.0
+offset_bottom = 41.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6fml")
+text = "Round 1"
+horizontal_alignment = 1
+
+[node name="demons_left" type="Label" parent="CanvasLayer"]
+offset_left = 60.0
+offset_top = 56.0
+offset_right = 242.0
+offset_bottom = 79.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6fml")
+text = "Demons Left: 0"
+horizontal_alignment = 1

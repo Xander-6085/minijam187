@@ -38,6 +38,7 @@ func damage(amount):
 	hp -= amount
 	if hp <= 0:
 		dead = true
+		
 		var t := create_tween()
 		$body_collider.disabled = true
 		$head/head_collider.disabled = true
