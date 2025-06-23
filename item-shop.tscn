@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt8m0hccx85yp"]
 
 [ext_resource type="PackedScene" uid="uid://dyfr5nshnfe4k" path="res://cross.tscn" id="1_lb3ad"]
-[ext_resource type="Script" path="res://item_shop.gd" id="1_rl2s8"]
+[ext_resource type="Script" uid="uid://flrhbppawh2y" path="res://item_shop.gd" id="1_rl2s8"]
 [ext_resource type="PackedScene" uid="uid://bgoyscyd26b3n" path="res://pillar.tscn" id="2_rl2s8"]
 
 [node name="cross" type="Node3D"]

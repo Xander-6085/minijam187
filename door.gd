@@ -1,6 +1,9 @@
 extends Node3D
 
 @export var open_speed = 5.0
+@export var open_distance = 90
+@export var cost = 75
+@export var interact_text = "Press E to open the manor (Cost: 5000)"
 var disappearing = -1
 
 func _process(delta):
