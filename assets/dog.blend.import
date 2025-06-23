@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bi64s2b0nnu5a"
-valid=false
+path="res://.godot/imported/dog.blend-60ac134440cf5a39a86bbc334c819416.scn"
 
 [deps]
 
 source_file="res://assets/dog.blend"
+dest_files=["res://.godot/imported/dog.blend-60ac134440cf5a39a86bbc334c819416.scn"]
 
 [params]
 
