@@ -115,14 +115,16 @@ func _crouch():
 	#Use a tween to make it smoother
 	var t := create_tween()
 	#Tween y axis of the collision shape to 0.5 in 0.1 second
+	print("crouch")
 	t.tween_property($CollisionShape3D, "scale:y", 0.5, 0.1)
-	t.tween_property($Camera3D, "scale:y", 0.5, 0.1)
+	t.tween_property($Camera3D, "position:y", 2, 0.1)
 	crouched = true
 	
 func _uncrouch():
 	var t := create_tween()
+	print("uncrouch")
 	t.tween_property($CollisionShape3D, "scale:y", 1, 0.1)
-	t.tween_property($Camera3D, "scale:y", 1, 0.1)
+	t.tween_property($Camera3D, "position:y", 3.263, 0.1)
 	crouched = false
 	
 func damage(amount):

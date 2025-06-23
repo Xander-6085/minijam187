@@ -79,3 +79,6 @@ func _input(event):
 	
 func can_shoot(light):
 	return shoot_timer == -1 && light >= get_ammo_cost()
+
+func has_all_guns():
+	return guns_bought[1] and guns_bought[2]

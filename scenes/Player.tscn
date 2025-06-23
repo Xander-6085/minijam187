@@ -94,7 +94,7 @@ swap_time = 0.1
 [node name="staff" parent="Camera3D/active_gun" instance=ExtResource("3_khinc")]
 transform = Transform3D(0.999997, 0.00180421, 0.00155782, -0.00146268, 0.980476, -0.196635, -0.00188216, 0.196632, 0.980475, 0.597099, -1.0424, -1.32783)
 visible = false
-damage = 2.0
+damage = 1.5
 ammo_cost = 1.0
 
 [node name="pistol" parent="Camera3D/active_gun" instance=ExtResource("2_3li8b")]
