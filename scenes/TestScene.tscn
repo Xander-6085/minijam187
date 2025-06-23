@@ -12,14 +12,14 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nb1wl"]
 panorama = ExtResource("3_n77mx")
 
-[sub_resource type="Sky" id="Sky_mdmvd"]
+[sub_resource type="Sky" id="Sky_nb1wl"]
 sky_material = SubResource("PanoramaSkyMaterial_nb1wl")
 
 [sub_resource type="Environment" id="Environment_m5dm6"]
 background_mode = 1
 background_color = Color(0.156893, 0.187417, 0.185929, 1)
 background_energy_multiplier = 0.86
-sky = SubResource("Sky_mdmvd")
+sky = SubResource("Sky_nb1wl")
 sky_custom_fov = 137.1
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.03
