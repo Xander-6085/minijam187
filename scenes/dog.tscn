@@ -50,7 +50,7 @@ size = Vector3(2.54443, 2.81543, 1)
 radius = 1.405
 height = 5.878
 
-[node name="Dog" type="CharacterBody3D"]
+[node name="Dog" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 1073741833
 collision_mask = 19
 script = ExtResource("1_gmowd")

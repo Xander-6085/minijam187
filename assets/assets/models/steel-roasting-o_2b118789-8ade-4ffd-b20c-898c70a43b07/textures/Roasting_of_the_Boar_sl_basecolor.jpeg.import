@@ -3,25 +3,26 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b700io1km0gi4"
-path="res://.godot/imported/Roasting_of_the_Boar_sl_basecolor.jpeg-bed47fe0c082cb74ae359a45c59088ee.ctex"
+path.s3tc="res://.godot/imported/Roasting_of_the_Boar_sl_basecolor.jpeg-bed47fe0c082cb74ae359a45c59088ee.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/assets/models/steel-roasting-o_2b118789-8ade-4ffd-b20c-898c70a43b07/textures/Roasting_of_the_Boar_sl_basecolor.jpeg"
-dest_files=["res://.godot/imported/Roasting_of_the_Boar_sl_basecolor.jpeg-bed47fe0c082cb74ae359a45c59088ee.ctex"]
+dest_files=["res://.godot/imported/Roasting_of_the_Boar_sl_basecolor.jpeg-bed47fe0c082cb74ae359a45c59088ee.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
