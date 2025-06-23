@@ -39,6 +39,7 @@ script = ExtResource("1_nb1wl")
 [node name="Player" parent="." instance=ExtResource("1_rlkm5")]
 unique_name_in_owner = true
 transform = Transform3D(-0.737776, -0.000781781, -0.675044, -0.000552398, 1, -0.000554386, 0.675045, -3.61489e-05, -0.737777, 0, 0, -10.8287)
+mouse_sensitivity = 0.22
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.901833, 0.432086, 0, -0.432086, 0.901833, 0, 18.5455, 23.5764)
@@ -59,6 +60,10 @@ size = Vector3(1, 1, 2.88147)
 [node name="CSGBox3D2" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(0.828635, 0, 0, 0, 1.3525, 0, 0, 0, 6.56727, 3.56992, -0.0323018, -3.5565)
 size = Vector3(1, 1, 2.81018)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.828635, 0, 0, 0, 1.3525, 0, 0, 0, 6.56727, 1.26447, -0.473449, -3.5565)
+size = Vector3(1, 0.347656, 2.81018)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Level Base/NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(0.0972472, 0, 0, 0, 2.51572, 0, 0, 0, 6.56727, -3.52111, 0.725676, -3.70304)

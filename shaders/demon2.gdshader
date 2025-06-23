@@ -23,6 +23,6 @@ void fragment() {
     float alpha = smoothstep(alpha_cutoff, 1.0, noise_value);
 
     ALBEDO = aura_color.rgb;
-	
+
     ALPHA = aura_color.a * alpha;
 }

@@ -9,7 +9,6 @@ script = ExtResource("3_xl0gr")
 delay = 0.0
 enemy_type = 0
 number_to_spawn = 3
-spawner = NodePath("")
 metadata/_custom_type_script = "uid://dcse3gwm56rcu"
 
 [sub_resource type="Resource" id="Resource_31irv"]
@@ -17,7 +16,6 @@ script = ExtResource("3_xl0gr")
 delay = 0.0
 enemy_type = 0
 number_to_spawn = 0
-spawner = NodePath("")
 metadata/_custom_type_script = "uid://dcse3gwm56rcu"
 
 [node name="EnemySpawner" type="Node3D"]
