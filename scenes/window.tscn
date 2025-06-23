@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://kaneguj4yqpm" path="res://assets/window.blend" id="1_oya5r"]
 [ext_resource type="Script" uid="uid://depf7cw1n7x8r" path="res://scenes/window.gd" id="2_qvkcj"]
-[ext_resource type="Script" uid="uid://ccqjlp70ha6vd" path="res://scenes/plank.gd" id="3_qnju7"]
-[ext_resource type="Script" uid="uid://bvbog4ekeu80g" path="res://scenes/window_enclosure.gd" id="4_qnju7"]
+[ext_resource type="Script" path="res://scenes/plank.gd" id="3_qnju7"]
+[ext_resource type="Script" path="res://scenes/window_enclosure.gd" id="4_qnju7"]
 [ext_resource type="Material" uid="uid://dsvpkyou6noea" path="res://assets/enclosure_fog_wall.tres" id="4_syahi"]
-[ext_resource type="Script" uid="uid://b7ac8rsnavvy0" path="res://scenes/window_fix_area.gd" id="5_ato5p"]
+[ext_resource type="Script" path="res://scenes/window_fix_area.gd" id="5_ato5p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to7fh"]
 albedo_color = Color(0.635294, 0.254902, 0.0627451, 1)
@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35868, 0.969104, 0.254782)
 shape = SubResource("CylinderShape3D_syahi")
 
 [node name="ViableSpawnArea" type="Area3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45712, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45712, 0.903221, 0)
 collision_layer = 0
 collision_mask = 1073741824
 priority = 1

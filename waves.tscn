@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://d30m3x6munkyo"]
+
+[ext_resource type="Script" uid="uid://dv4a4o4bt4v72" path="res://scenes/wave.gd" id="1_uaif6"]
+[ext_resource type="Script" uid="uid://dcse3gwm56rcu" path="res://scripts/sub_wave.gd" id="2_i8v3i"]
+
+[sub_resource type="Resource" id="Resource_kvpfn"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 0
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_dinhu"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 0
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_kvuet"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 0
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_trtic"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 2
+number_to_spawn = 1
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_ir15t"]
+script = ExtResource("2_i8v3i")
+delay = 10.0
+enemy_type = 2
+number_to_spawn = 2
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_ca42v"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 0
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_rysoc"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 1
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_ssvqc"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 1
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_264po"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 2
+number_to_spawn = 2
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[sub_resource type="Resource" id="Resource_1kice"]
+script = ExtResource("2_i8v3i")
+delay = 0.0
+enemy_type = 1
+number_to_spawn = 3
+metadata/_custom_type_script = "uid://dcse3gwm56rcu"
+
+[node name="Waves" type="Node"]
+
+[node name="Wave1" type="Node" parent="."]
+script = ExtResource("1_uaif6")
+subwaves = Array[ExtResource("2_i8v3i")]([SubResource("Resource_kvpfn"), SubResource("Resource_dinhu"), SubResource("Resource_kvuet")])
+
+[node name="Wave2" type="Node" parent="."]
+script = ExtResource("1_uaif6")
+subwaves = Array[ExtResource("2_i8v3i")]([SubResource("Resource_trtic"), SubResource("Resource_ir15t"), SubResource("Resource_ca42v"), SubResource("Resource_rysoc"), SubResource("Resource_ssvqc")])
+
+[node name="Wave3" type="Node" parent="."]
+script = ExtResource("1_uaif6")
+subwaves = Array[ExtResource("2_i8v3i")]([SubResource("Resource_trtic"), SubResource("Resource_ir15t"), SubResource("Resource_ca42v"), SubResource("Resource_ca42v"), SubResource("Resource_ca42v"), SubResource("Resource_264po"), SubResource("Resource_1kice")])

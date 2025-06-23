@@ -5,17 +5,38 @@ class_name EnemySpawner;
 enum EnemyType {
 	DEMON_1,
 	DOG,
+	DEMON_2,
 }
 
 static var enemy_types = [
 	load("res://scenes/Demon.tscn"),
-	load("res://scenes/Demon.tscn")
+	load("res://scenes/dog.tscn"),
+	load("res://scenes/StrongDemon.tscn"),
 ]
 
 var wave_num = -1
 var new_wave_timer = -1
-@export var total_waves = 1
+var total_waves = 1
 @export var new_wave_time = 5
+
+
+func _ready() -> void:
+	total_waves = len($Waves.get_children())
+
+func _process(delta: float) -> void:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	if new_wave_timer == -1:
+		print(enemies)
+		if len(enemies) == 0 and wave_num < total_waves-1:
+			print("wave_num: ", wave_num)
+			wave_num += 1
+			run_wave(wave_num)
+		new_wave_timer = 0
+	if new_wave_timer != -1:
+		new_wave_timer += delta # countdown
+		if new_wave_timer > new_wave_time: # we can shoot again
+			new_wave_timer = -1
+
 
 func run_wave(wave_num: int):
 	print("starting wave ", wave_num);
@@ -47,8 +68,6 @@ func run_subwave(subwave: SubWave):
 
 		if not spawned: # all spawners occupied- don't waste cpu cycles in the while loop
 			await get_tree().create_timer(0.5).timeout
-		
-		
 	
 func spawn_enemy(enemy_type: EnemyType) -> Node3D:
 	match enemy_type:
@@ -56,21 +75,12 @@ func spawn_enemy(enemy_type: EnemyType) -> Node3D:
 			return enemy_types[0].instantiate()
 		EnemyType.DOG:
 			return enemy_types[1].instantiate()
+		EnemyType.DEMON_2:
+			return enemy_types[2].instantiate()
 		_:
 			assert(1 == 0);
 			return enemy_types[0].instantiate()
 
-func _process(delta: float) -> void:
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	if new_wave_timer == -1 and len(enemies) == 0 and wave_num < total_waves-1:
-		print("wave_num: ", wave_num)
-		wave_num += 1
-		new_wave_timer = 0
-		run_wave(wave_num)
-	if new_wave_timer != -1:
-		new_wave_timer += delta # countdown
-		if new_wave_timer > new_wave_time: # we can shoot again
-			new_wave_timer = -1
 	# 1. 
 	# 2. spawn N demons until window full
 	# 3. wait?

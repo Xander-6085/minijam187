@@ -15,10 +15,6 @@ var attacking_player = null
 var attacking_window = null
 var player = null
 
-
-func _ready():
-	nav_agent.max_speed = 5
-
 func _process(delta: float) -> void:
 	if not dead:
 		if player == null:
