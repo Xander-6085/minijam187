@@ -6,12 +6,14 @@ enum EnemyType {
 	DEMON_1,
 	DOG,
 	DEMON_2,
+	BIG_DEMON
 }
 
 static var enemy_types = [
 	load("res://scenes/Demon.tscn"),
 	load("res://scenes/dog.tscn"),
 	load("res://scenes/StrongDemon.tscn"),
+	load("res://scenes/BigDemon.tscn"),
 ]
 
 var wave_num = -1
@@ -24,6 +26,9 @@ func _ready() -> void:
 	total_waves = len($Waves.get_children())
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("jump"):
+		boss()
+		
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	if new_wave_timer == -1:
 		print(enemies)
@@ -46,6 +51,14 @@ func run_wave(wave_num: int):
 		await run_subwave(subwave)
 		print("Subwave spawned!")
 		await get_tree().create_timer(subwave.delay).timeout
+		
+func boss():
+	var boss = enemy_types[3].instantiate()
+	boss.player = %Player
+	boss.scale = Vector3(4,4,4);
+	get_tree().root.add_child(boss)
+	boss.global_transform = %BossSpawn.global_transform
+	
 
 func run_subwave(subwave: SubWave):
 	var spawned = false
