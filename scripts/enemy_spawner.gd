@@ -27,7 +27,7 @@ func run_subwave(subwave: SubWave):
 	spawners.shuffle()
 	while !spawned:
 		for spawner in spawners:
-			if spawned:
+			if spawned or !spawner.unlocked:
 				continue
 			if spawner.get_node("SpawnArea").has_overlapping_bodies():
 				var foo = spawner.get_node("SpawnArea").get_overlapping_bodies()
