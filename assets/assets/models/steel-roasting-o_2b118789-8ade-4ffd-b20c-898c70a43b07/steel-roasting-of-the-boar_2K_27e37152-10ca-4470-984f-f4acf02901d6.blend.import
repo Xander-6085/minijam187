@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://di2magl63sm5s"
-valid=false
+path="res://.godot/imported/steel-roasting-of-the-boar_2K_27e37152-10ca-4470-984f-f4acf02901d6.blend-fc660cd6af67ad5b825fa949c7106e63.scn"
 
 [deps]
 
 source_file="res://assets/assets/models/steel-roasting-o_2b118789-8ade-4ffd-b20c-898c70a43b07/steel-roasting-of-the-boar_2K_27e37152-10ca-4470-984f-f4acf02901d6.blend"
+dest_files=["res://.godot/imported/steel-roasting-of-the-boar_2K_27e37152-10ca-4470-984f-f4acf02901d6.blend-fc660cd6af67ad5b825fa949c7106e63.scn"]
 
 [params]
 
