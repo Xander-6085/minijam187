@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bphrq20e23j0b"]
+[gd_scene load_steps=19 format=3 uid="uid://civr2ee1yad47"]
 
 [ext_resource type="Script" uid="uid://t4x2kvjbve2i" path="res://scripts/demon.gd" id="1_3m0gb"]
 [ext_resource type="Shader" uid="uid://d0bsv3al3e4rn" path="res://shaders/pixel2.gdshader" id="2_ky4cb"]
 [ext_resource type="Shader" uid="uid://cgx6jsye0483y" path="res://shaders/demon.gdshader" id="5_jjs1r"]
 [ext_resource type="Shader" uid="uid://cx03bm66grn0" path="res://shaders/highlight.gdshader" id="6_cq0ii"]
-[ext_resource type="Material" uid="uid://btlton6nhclq2" path="res://assets/fog1.tres" id="7_0kenw"]
-[ext_resource type="Script" path="res://scenes/demon_collision_area.gd" id="8_rdfw5"]
+[ext_resource type="Material" path="res://assets/fog1.tres" id="7_0kenw"]
+[ext_resource type="Script" uid="uid://ch4dgmoqng3iw" path="res://scenes/demon_collision_area.gd" id="8_rdfw5"]
 [ext_resource type="Script" uid="uid://hyjrjngu6qwj" path="res://scenes/demon_head.gd" id="9_uwj7e"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i5lib"]
@@ -79,14 +79,14 @@ height = 1.64106
 [sub_resource type="SphereShape3D" id="SphereShape3D_3nvcf"]
 radius = 0.658537
 
-[node name="Demon" type="CharacterBody3D" groups=["enemies"]]
+[node name="Demon2" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 1073741833
 collision_mask = 19
 script = ExtResource("1_3m0gb")
 speed = 6
 attack = 20
 hp = 50
-value = 20
+value = 35
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00585651, 1.01194, -0.00413918)
@@ -101,7 +101,6 @@ material = ExtResource("7_0kenw")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
 max_speed = 15.0
-debug_enabled = true
 debug_path_custom_color = Color(0.877439, 0.237784, 0.431184, 1)
 
 [node name="Area3D" type="Area3D" parent="."]
