@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://icduv0yxbhwv"]
+[gd_scene load_steps=12 format=4 uid="uid://icduv0yxbhwv"]
 
 [ext_resource type="Script" uid="uid://d2oo4vw8uoxlt" path="res://scripts/dog.gd" id="1_gmowd"]
-[ext_resource type="Material" uid="uid://btlton6nhclq2" path="res://assets/fog1.tres" id="1_qjqk5"]
-[ext_resource type="Script" path="res://scenes/demon_collision_area.gd" id="2_gmowd"]
+[ext_resource type="Material" path="res://assets/fog1.tres" id="1_qjqk5"]
+[ext_resource type="Script" uid="uid://ch4dgmoqng3iw" path="res://scenes/demon_collision_area.gd" id="2_gmowd"]
 [ext_resource type="Script" uid="uid://hyjrjngu6qwj" path="res://scenes/demon_head.gd" id="4_gmowd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k4xu"]
@@ -40,6 +40,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_frwx0")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmowd"]
+albedo_color = Color(0.641302, 0.101163, 0, 1)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4c5pb"]
 radius = 0.7
 
@@ -67,6 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2889, 0.206771, -0.567782)
 [node name="Dog" type="MeshInstance3D" parent="Mesh/dog/Armature"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1142, -0.455889, -0.00979257)
 mesh = SubResource("ArrayMesh_p4au8")
+surface_material_override/0 = SubResource("StandardMaterial3D_gmowd")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Mesh/dog/Armature"]
 bones/0/name = "Bone"
@@ -241,7 +245,6 @@ shape = SubResource("CapsuleShape3D_4c5pb")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
 radius = 6.79
-debug_enabled = true
 debug_path_custom_color = Color(0.877439, 0.237784, 0.431184, 1)
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
