@@ -21,11 +21,13 @@ var enemies = 0
 
 @onready var model = $Rig
 @onready var interact_cast = $Camera3D/interact_cast
-@onready var interact_text = $CanvasLayer/BoxContainer/interact_text
-@onready var light_text = $CanvasLayer/light_text
+@onready var interact_text = %interact_text
+@onready var light_text = %light_text
 @onready var active_gun = $Camera3D/active_gun
-@onready var round_text = $CanvasLayer/round
-@onready var demons_left_text = $CanvasLayer/demons_left
+@onready var round_text = %round
+@onready var demons_left_text = %demons_left
+@onready var hit_marker = %Hit
+@onready var crit_marker = %Crit_hit
 
 @onready var light : float = 0:
 	get:
@@ -93,10 +95,6 @@ func _process(delta: float) -> void:
 		invuln_timer += delta # countdown
 		if invuln_timer > invuln_time:
 			invuln_timer = -1
-	if Input.is_action_just_pressed("jump"):
-		var foo = %LevelBase;
-		foo.run_wave(0)
-	
 	
 	demons_left_text.text = str("Demons Left: ", enemies)
 		
@@ -144,9 +142,6 @@ func damage(amount):
 		invuln_timer = 0
 
 func activate_hit_marker(shot_success):
-	var hit_marker = $CanvasLayer/Control/Hit
-	var crit_marker = $"CanvasLayer/Control/Crit-hit"
-	
 	if shot_success == 1:
 		if hit_tween != null:
 			hit_tween.kill()

@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 	if new_wave_timer == -1:
 		print(enemies)
 		if len(enemies) == 0 and wave_num < total_waves-1:
-			print("wave_num: ", wave_num)
 			wave_num += 1
 			run_wave(wave_num)
 		new_wave_timer = 0

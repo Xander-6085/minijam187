@@ -19,7 +19,6 @@ func shoot(line_of_sight_raycast):
 		bullet.global_transform = cast.global_transform
 		bullet.look_at(bullet.to_global(cast.target_position))
 		bullet.scale = Vector3.ONE;
-		print(bullet)
 		
 		cast.force_raycast_update()
 		if !cast.is_colliding():

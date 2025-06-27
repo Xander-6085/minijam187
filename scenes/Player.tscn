@@ -25,10 +25,8 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-expand_margin_left = 10.0
-expand_margin_top = 5.0
-expand_margin_right = 10.0
-expand_margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_right = 5.0
 
 [sub_resource type="Curve" id="Curve_qu4a1"]
 _limits = [0.0260062, 0.61583, -0.5, 0.988449]
@@ -126,6 +124,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="interact_text" type="Label" parent="CanvasLayer/BoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_v6fml")
 text = "$4,000,000: shotgun"
@@ -158,6 +157,7 @@ scale = Vector2(0.425, 0.425)
 texture = SubResource("PlaceholderTexture2D_mdl7e")
 
 [node name="light_text" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -200,6 +200,7 @@ scale = Vector2(0.241211, 0.241211)
 texture = ExtResource("7_khinc")
 
 [node name="round" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
 offset_left = 25.0
 offset_top = 18.0
 offset_right = 274.0
@@ -209,6 +210,7 @@ text = "Round 1"
 horizontal_alignment = 1
 
 [node name="demons_left" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
 offset_left = 60.0
 offset_top = 56.0
 offset_right = 242.0

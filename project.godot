@@ -15,6 +15,12 @@ run/main_scene="uid://de176eam8jv2b"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg")
@@ -22,6 +28,10 @@ enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg")
 [global_group]
 
 enemies=""
+
+[gui]
+
+theme/custom_font="uid://bqeg5t0b0j47k"
 
 [input]
 
@@ -89,3 +99,10 @@ scroll_down={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+
+[shader_globals]
+
+precision_multiplier={
+"type": "float",
+"value": 0.5
+}
