@@ -1,7 +1,7 @@
 shader_type spatial;
 
 
-//render_mode cull_front;
+render_mode cull_front;
 
 uniform sampler2D vert_noise : source_color;
 uniform vec2 noise_scroll_speed = vec2(1.0,1.0);
@@ -48,11 +48,12 @@ void fragment() {
 //float rad = 1.0 / pow(depth,0.5);
 	
 	float f1 = dot(VIEW, vec3(0,0,1));
-	float f2 = length(sin(UV * vec2(35)));
-	float f = weighted_avg({f1, f2}, {0.0, 0.1});
-	float rad = (0.01) * (1.0 / pow(FRAGCOORD.z, 0.25));  //
+	float f2 = length(sin(UV * vec2(25)));
+	float f = weighted_avg({f1, f2}, {1.0, 0.3});
+	float b = 10.0;
+	float rad = (0.01) * (1.0 / pow(b, 1.0));  //
 	rad /= 10.0;
-	f = smoothstep(0.98 * (1.0 - rad), 1, f); // [
+	f = smoothstep((1.0 - rad), 1, f); // [
 	ALBEDO = vec3(100.0 * fract(f));	
 	
 	// what i want:
