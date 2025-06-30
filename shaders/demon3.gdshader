@@ -19,7 +19,7 @@ void vertex() {
 	//VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	vec2 t = noise_scroll_speed * TIME;
 	vec4 offset = texture(vert_noise, t);
-	VERTEX += (0.5) * NORMAL * offset.r;
+	//VERTEX += (0.5) * NORMAL * offset.r;
 	depth = distance(CAMERA_POSITION_WORLD, NODE_POSITION_WORLD);
 }
 
@@ -47,12 +47,17 @@ void fragment() {
 
 //float rad = 1.0 / pow(depth,0.5);
 	
+	float density = 50.0;
 	float f1 = dot(VIEW, vec3(0,0,1));
-	float f2 = length(sin(UV * vec2(25)));
+	float f2 = length(sin(UV * vec2(density)));
 	float f = weighted_avg({f1, f2}, {1.0, 0.3});
 	float b = 10.0;
-	float rad = (0.01) * (1.0 / pow(b, 1.0));  //
-	rad /= 10.0;
+	float rad = (1.0 / pow(b, 1.0));  //
+	vec3 foo = normalize(vec3(2.0*cos(TIME), 0, sin(TIME)));
+	float d = dot(BINORMAL, foo);
+	rad = weighted_avg({rad, d}, {1.0, 0.3});
+	rad /= 5.0;
+	
 	f = smoothstep((1.0 - rad), 1, f); // [
 	ALBEDO = vec3(100.0 * fract(f));	
 	
