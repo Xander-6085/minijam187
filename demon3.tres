@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bk67t2mpe1sm0"]
+
+[ext_resource type="Shader" uid="uid://smktl8xvrnue" path="res://shaders/demon3.gdshader" id="1_aiunk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cihcy"]
+render_priority = 1
+shader = ExtResource("1_aiunk")
+shader_parameter/noise_scroll_speed = Vector2(1, 1)
+
+[resource]
+next_pass = SubResource("ShaderMaterial_cihcy")
+blend_mode = 3
+albedo_color = Color(0.819608, 0.14902, 0.843137, 1)
+rim_tint = 0.53
