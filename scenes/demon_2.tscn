@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtig1boj5sbjg"]
+
+[ext_resource type="Shader" uid="uid://smktl8xvrnue" path="res://shaders/demon3.gdshader" id="1_w6m66"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xuf37"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cihcy"]
+render_priority = 1
+shader = ExtResource("1_w6m66")
+shader_parameter/noise_scroll_speed = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fctw1"]
+next_pass = SubResource("ShaderMaterial_cihcy")
+blend_mode = 3
+albedo_color = Color(0.819608, 0.14902, 0.843137, 1)
+
+[node name="Demon2" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xuf37")
+surface_material_override/0 = SubResource("StandardMaterial3D_fctw1")
