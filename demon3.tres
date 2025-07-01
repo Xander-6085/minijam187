@@ -6,6 +6,8 @@
 render_priority = 0
 shader = ExtResource("1_aiunk")
 shader_parameter/noise_scroll_speed = Vector2(1, 1)
+shader_parameter/aura_padding = 0.5
+shader_parameter/aura_color = Color(0.278019, 0.751788, 0.795914, 1)
 
 [resource]
 next_pass = SubResource("ShaderMaterial_cihcy")
