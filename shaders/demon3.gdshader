@@ -13,14 +13,13 @@ varying float vertexToCam; // distance from current vertex to the camera
 varying float depth;
 
 void vertex() {
-	//vec3 view = (MODELVIEW_MATRIX * vec4(NORMAL, 1.0)).xyz;	
+	vec3 view = (MODELVIEW_MATRIX * vec4(NORMAL, 1.0)).xyz;	
 	//float t = fract(view.z * 1.0) * sin(TIME) * 0.5;
-	//VERTEX += t * NORMAL;
 	//VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	vec2 t = noise_scroll_speed * TIME;
-	vec4 offset = texture(vert_noise, t);
+	//vec4 offset = texture(vert_noise, t);
 	//VERTEX += (0.5) * NORMAL * offset.r;
 	depth = distance(CAMERA_POSITION_WORLD, NODE_POSITION_WORLD);
+	VERTEX += 0.05 * NORMAL;
 }
 
 float circle(vec2 uv){
@@ -47,7 +46,7 @@ void fragment() {
 
 //float rad = 1.0 / pow(depth,0.5);
 	
-	float density = 50.0;
+	float density = 50.0 / sqrt(max(depth, 1.0));
 	float f1 = dot(VIEW, vec3(0,0,1));
 	float f2 = length(sin(UV * vec2(density)));
 	float f = weighted_avg({f1, f2}, {1.0, 0.3});
@@ -59,7 +58,8 @@ void fragment() {
 	rad /= 5.0;
 	
 	f = smoothstep((1.0 - rad), 1, f); // [
-	ALBEDO = vec3(100.0 * fract(f));	
+	ALBEDO = vec3(100.0 * fract(f));
+	ALPHA = max(ALBEDO.r, 0.3);
 	
 	// what i want:
 	// further away, the radius gets smaller
